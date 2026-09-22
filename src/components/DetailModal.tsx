@@ -62,7 +62,8 @@ export default function DetailModal({
           <div className="absolute bottom-6 left-6 right-6 space-y-2">
             <div className="flex flex-wrap items-center gap-2">
               {item.badge && (
-                <span className="bg-[#E50914] text-white text-xs font-black uppercase tracking-wider px-3 py-1 rounded-sm shadow-md">
+                <span className="inline-flex items-center gap-1.5 bg-black/80 backdrop-blur-md border border-white/20 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-lg">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#E50914] shadow-sm shadow-red-500 shrink-0 animate-pulse" />
                   {item.badge}
                 </span>
               )}
