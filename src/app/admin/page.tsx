@@ -1,0 +1,462 @@
+"use client";
+
+import React, { useState, useRef, useSyncExternalStore } from "react";
+import Link from "next/link";
+import { usePortfolio } from "@/context/PortfolioContext";
+import ProfileTab from "@/components/admin/ProfileTab";
+import ExperienceTab from "@/components/admin/ExperienceTab";
+import EducationTab from "@/components/admin/EducationTab";
+import CertificationsTab from "@/components/admin/CertificationsTab";
+import ProjectsTab from "@/components/admin/ProjectsTab";
+import SkillsTab from "@/components/admin/SkillsTab";
+import ReferencesTab from "@/components/admin/ReferencesTab";
+import JsonTab from "@/components/admin/JsonTab";
+import AdminPinLock from "@/components/admin/AdminPinLock";
+import ChangePinModal from "@/components/admin/ChangePinModal";
+import {
+  User,
+  Briefcase,
+  GraduationCap,
+  Award,
+  Layers,
+  Sparkles,
+  Users,
+  Code2,
+  ExternalLink,
+  Download,
+  Upload,
+  RotateCcw,
+  Eye,
+  CheckCircle,
+  Lock,
+  KeyRound,
+} from "lucide-react";
+
+const emptySubscribe = () => () => {};
+
+function subscribeSession(callback: () => void) {
+  window.addEventListener("storage", callback);
+  window.addEventListener("session-auth-change", callback);
+  return () => {
+    window.removeEventListener("storage", callback);
+    window.removeEventListener("session-auth-change", callback);
+  };
+}
+
+function getSessionSnapshot() {
+  return sessionStorage.getItem("azmain_admin_session_auth") === "true";
+}
+
+function getServerSnapshot() {
+  return false;
+}
+
+export default function AdminPage() {
+  const {
+    data,
+    updateData,
+    updateProfile,
+    updateExperience,
+    updateEducation,
+    updateCertifications,
+    updateFeaturedProjects,
+    updateUpcomingProjects,
+    updateSkills,
+    updateBrands,
+    updateReferences,
+    resetToDefault,
+    exportJSON,
+    importJSON,
+    isCustomized,
+  } = usePortfolio();
+
+  const [activeTab, setActiveTab] = useState<
+    | "profile"
+    | "experience"
+    | "education"
+    | "certifications"
+    | "projects"
+    | "skills"
+    | "references"
+    | "json"
+  >("profile");
+
+  const [showLivePreview, setShowLivePreview] = useState(false);
+  const [notification, setNotification] = useState<string | null>(null);
+  const [isChangePinOpen, setIsChangePinOpen] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const isMounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
+  const isAuthenticated = useSyncExternalStore(subscribeSession, getSessionSnapshot, getServerSnapshot);
+
+  const handleLock = () => {
+    if (typeof window !== "undefined") {
+      sessionStorage.removeItem("azmain_admin_session_auth");
+      window.dispatchEvent(new Event("session-auth-change"));
+    }
+    showToast("Profile locked. Enter PIN to re-enter.");
+  };
+
+  const showToast = (msg: string) => {
+    setNotification(msg);
+    setTimeout(() => setNotification(null), 3000);
+  };
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const content = event.target?.result as string;
+      if (content) {
+        const success = importJSON(content);
+        if (success) {
+          showToast("Portfolio data imported successfully!");
+        } else {
+          alert("Failed to parse JSON file. Please ensure it adheres to the portfolio schema.");
+        }
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = "";
+  };
+
+  const handleReset = () => {
+    if (
+      confirm(
+        "Are you sure you want to restore the default CV data? Any custom edits will be replaced with Azmain Adil's authentic CV information."
+      )
+    ) {
+      resetToDefault();
+      showToast("Reset to authentic CV data.");
+    }
+  };
+
+  const tabs = [
+    { id: "profile", label: "Profile & Hero", icon: User },
+    { id: "experience", label: "Experience", icon: Briefcase },
+    { id: "education", label: "Education", icon: GraduationCap },
+    { id: "certifications", label: "Certifications", icon: Award },
+    { id: "projects", label: "Projects & Ventures", icon: Layers },
+    { id: "skills", label: "Skills & Matrix", icon: Sparkles },
+    { id: "references", label: "References", icon: Users },
+    { id: "json", label: "Raw JSON", icon: Code2 },
+  ];
+
+  if (!isMounted) {
+    return (
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
+        <div className="w-12 h-12 rounded-lg bg-[#E50914] flex items-center justify-center font-black text-white text-2xl animate-pulse shadow-2xl shadow-red-600/50">
+          A
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <AdminPinLock
+        onUnlock={() => {
+          showToast("Profile unlocked. Welcome to CMS Dashboard.");
+        }}
+        avatarUrl={data.profile.avatarUrl}
+        profileName={data.profile.name}
+      />
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col">
+      {/* Hidden File Input for JSON import */}
+      <input
+        type="file"
+        ref={fileInputRef}
+        onChange={handleFileUpload}
+        accept=".json"
+        className="hidden"
+      />
+
+      {/* Top Admin Header */}
+      <header className="sticky top-0 z-40 bg-[#121212]/95 backdrop-blur-md border-b border-white/10 px-4 sm:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4 shadow-xl">
+        <div className="flex items-center gap-3">
+          <Link
+            href="/"
+            className="w-8 h-8 rounded-sm bg-[#E50914] flex items-center justify-center font-black text-white text-base hover:scale-105 transition-transform"
+            title="Return to Main Portfolio"
+          >
+            A
+          </Link>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="font-extrabold text-sm sm:text-base tracking-wide text-white">
+                CMS Content Dashboard
+              </span>
+              <span className="text-[10px] bg-red-950 text-[#E50914] font-bold px-2 py-0.5 rounded border border-red-800/40">
+                ADMIN
+              </span>
+              {isCustomized && (
+                <span className="text-[10px] bg-emerald-950 text-emerald-400 font-semibold px-2 py-0.5 rounded border border-emerald-800/40">
+                  Custom Edits Active
+                </span>
+              )}
+            </div>
+            <p className="text-[11px] text-zinc-400">
+              Manage portfolio records, reorder items, validate JSON, and preview changes
+            </p>
+          </div>
+        </div>
+
+        {/* Global CMS Actions */}
+        <div className="flex flex-wrap items-center gap-2">
+          {/* Live Preview Toggle */}
+          <button
+            onClick={() => setShowLivePreview(!showLivePreview)}
+            className={`text-xs px-3 py-1.5 rounded-md font-semibold flex items-center gap-1.5 transition-colors cursor-pointer border ${
+              showLivePreview
+                ? "bg-white text-black border-white"
+                : "bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border-white/10"
+            }`}
+          >
+            <Eye className="w-3.5 h-3.5" />
+            <span>{showLivePreview ? "Close Preview" : "Split Preview"}</span>
+          </button>
+
+          {/* Export JSON */}
+          <button
+            onClick={() => {
+              exportJSON();
+              showToast("Exported portfolio.json successfully.");
+            }}
+            className="text-xs bg-zinc-800 hover:bg-zinc-700 text-zinc-200 px-3 py-1.5 rounded-md font-semibold flex items-center gap-1.5 border border-white/10 transition-colors cursor-pointer"
+            title="Download portfolio.json to commit to Git repository"
+          >
+            <Download className="w-3.5 h-3.5 text-red-500" />
+            <span>Export JSON</span>
+          </button>
+
+          {/* Import JSON */}
+          <button
+            onClick={() => fileInputRef.current?.click()}
+            className="text-xs bg-zinc-800 hover:bg-zinc-700 text-zinc-200 px-3 py-1.5 rounded-md font-semibold flex items-center gap-1.5 border border-white/10 transition-colors cursor-pointer"
+          >
+            <Upload className="w-3.5 h-3.5 text-blue-400" />
+            <span>Import JSON</span>
+          </button>
+
+          {/* Reset to Default */}
+          <button
+            onClick={handleReset}
+            className="text-xs bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-red-400 px-3 py-1.5 rounded-md font-medium flex items-center gap-1.5 border border-white/5 transition-colors cursor-pointer"
+            title="Reset to authentic CV information"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+            <span>Reset CV</span>
+          </button>
+
+          {/* Change PIN */}
+          <button
+            onClick={() => setIsChangePinOpen(true)}
+            className="text-xs bg-zinc-800 hover:bg-zinc-700 text-zinc-200 px-3 py-1.5 rounded-md font-semibold flex items-center gap-1.5 border border-white/10 transition-colors cursor-pointer"
+            title="Change 4-Digit Profile Lock PIN"
+          >
+            <KeyRound className="w-3.5 h-3.5 text-amber-400" />
+            <span>Change PIN</span>
+          </button>
+
+          {/* Lock Dashboard */}
+          <button
+            onClick={handleLock}
+            className="text-xs bg-zinc-900 hover:bg-red-950/60 text-zinc-300 hover:text-red-300 px-3 py-1.5 rounded-md font-semibold flex items-center gap-1.5 border border-white/10 hover:border-red-800/40 transition-colors cursor-pointer"
+            title="Lock Dashboard Session"
+          >
+            <Lock className="w-3.5 h-3.5 text-red-500" />
+            <span>Lock</span>
+          </button>
+
+          {/* View Live Portfolio */}
+          <Link
+            href="/"
+            className="text-xs bg-[#E50914] hover:bg-[#ff1e27] text-white font-bold px-3.5 py-1.5 rounded-md flex items-center gap-1.5 shadow-md shadow-red-600/30 transition-all hover:scale-105 cursor-pointer ml-1"
+          >
+            <span>View Live Site</span>
+            <ExternalLink className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+      </header>
+
+      {/* Toast Notification */}
+      {notification && (
+        <div className="fixed top-16 right-6 z-50 bg-[#1e1e1e] border border-green-500/40 text-green-300 text-xs px-4 py-2.5 rounded-lg shadow-2xl flex items-center gap-2 animate-in slide-in-from-top-2">
+          <CheckCircle className="w-4 h-4 text-green-400" />
+          <span>{notification}</span>
+        </div>
+      )}
+
+      {/* Main Admin Workspace (with optional Split Screen) */}
+      <div className="flex-1 flex overflow-hidden">
+        {/* Left Side: CMS Tabs & Form Controls */}
+        <div
+          className={`flex-1 flex flex-col overflow-y-auto transition-all duration-300 ${
+            showLivePreview ? "w-1/2 border-r border-white/10" : "w-full"
+          }`}
+        >
+          {/* Horizontal Tab Navigation Strip */}
+          <div className="bg-[#101010] border-b border-white/10 px-4 sm:px-8 py-2 overflow-x-auto no-scrollbar flex items-center gap-2">
+            {tabs.map((tab) => {
+              const Icon = tab.icon;
+              const isActive = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id as typeof activeTab)}
+                  className={`flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                    isActive
+                      ? "bg-[#E50914] text-white shadow-md shadow-red-950/40"
+                      : "text-zinc-400 hover:text-white hover:bg-zinc-800/60"
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Tab Content Panel */}
+          <div className="p-4 sm:p-8 flex-1">
+            {activeTab === "profile" && (
+              <ProfileTab
+                profile={data.profile}
+                onChange={(p) => {
+                  updateProfile(p);
+                  showToast("Profile details updated.");
+                }}
+              />
+            )}
+
+            {activeTab === "experience" && (
+              <ExperienceTab
+                experience={data.experience}
+                onChange={(exp) => {
+                  updateExperience(exp);
+                  showToast("Experience records updated.");
+                }}
+              />
+            )}
+
+            {activeTab === "education" && (
+              <EducationTab
+                education={data.education}
+                onChange={(edu) => {
+                  updateEducation(edu);
+                  showToast("Academic records updated.");
+                }}
+              />
+            )}
+
+            {activeTab === "certifications" && (
+              <CertificationsTab
+                certifications={data.certifications}
+                onChange={(certs) => {
+                  updateCertifications(certs);
+                  showToast("Certifications updated.");
+                }}
+              />
+            )}
+
+            {activeTab === "projects" && (
+              <ProjectsTab
+                featuredProjects={data.featuredProjects}
+                upcomingProjects={data.upcomingProjects}
+                onChangeFeatured={(proj) => {
+                  updateFeaturedProjects(proj);
+                  showToast("Featured projects updated.");
+                }}
+                onChangeUpcoming={(proj) => {
+                  updateUpcomingProjects(proj);
+                  showToast("Upcoming projects updated.");
+                }}
+              />
+            )}
+
+            {activeTab === "skills" && (
+              <SkillsTab
+                skills={data.skills}
+                languages={data.languages}
+                hobbies={data.hobbies}
+                brands={data.brands}
+                onChangeSkills={(s) => {
+                  updateSkills(s);
+                  showToast("Skill matrix updated.");
+                }}
+                onChangeLanguages={(l) => {
+                  updateData({ ...data, languages: l });
+                  showToast("Languages updated.");
+                }}
+                onChangeHobbies={(h) => {
+                  updateData({ ...data, hobbies: h });
+                  showToast("Hobbies updated.");
+                }}
+                onChangeBrands={(b) => {
+                  updateBrands(b);
+                  showToast("Brands updated.");
+                }}
+              />
+            )}
+
+            {activeTab === "references" && (
+              <ReferencesTab
+                references={data.references}
+                onChange={(r) => {
+                  updateReferences(r);
+                  showToast("References updated.");
+                }}
+              />
+            )}
+
+            {activeTab === "json" && (
+              <JsonTab
+                data={data}
+                onApply={(newData) => {
+                  updateData(newData);
+                  showToast("Direct JSON changes applied.");
+                }}
+                onExport={exportJSON}
+              />
+            )}
+          </div>
+        </div>
+
+        {/* Right Side: Split Screen Live Preview */}
+        {showLivePreview && (
+          <div className="w-1/2 flex flex-col bg-[#050505] border-l border-white/10 overflow-hidden">
+            <div className="p-3 bg-zinc-900 border-b border-white/10 flex items-center justify-between text-xs">
+              <span className="text-zinc-300 font-semibold flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                Live In-App Preview (Instant Synchronized State)
+              </span>
+              <button
+                onClick={() => setShowLivePreview(false)}
+                className="text-zinc-400 hover:text-white"
+              >
+                ✕ Close
+              </button>
+            </div>
+            <iframe
+              src="/"
+              title="Portfolio Live Preview"
+              className="w-full flex-1 border-0"
+            />
+          </div>
+        )}
+      </div>
+
+      {/* Change PIN Modal Dialog */}
+      <ChangePinModal
+        isOpen={isChangePinOpen}
+        onClose={() => setIsChangePinOpen(false)}
+        onSuccess={(msg) => showToast(msg)}
+      />
+    </div>
+  );
+}
