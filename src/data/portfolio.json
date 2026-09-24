@@ -133,6 +133,13 @@
       "subtitle": "Communication & Ethics",
       "logoText": "SKILL BANK",
       "category": "Corporate Development"
+    },
+    {
+      "id": "brand-11",
+      "name": "IDLC FINANCE PLC",
+      "subtitle": "Consumer Division Partner",
+      "logoText": "IDLC FINANCE",
+      "category": "Financial Institution"
     }
   ],
   "experience": [
@@ -141,7 +148,7 @@
       "company": "Green Delta Insurance PLC",
       "role": "Manager",
       "subRole": "Strategic Operations & Branch Transformation",
-      "period": "01/2024 – Present",
+      "period": "01/2025 – Present",
       "location": "Dhaka, Bangladesh",
       "badge": "FEATURED",
       "shortDescription": "Leading strategic operations, performance management, and restructuring across 20 metropolitan and mufassil branches.",
@@ -157,15 +164,21 @@
         "Formulating and executing branch-level business development plans for market expansion",
         "Optimizing underwriting distribution networks and claim settlement velocity"
       ],
-      "skills": ["Strategic Operations", "Performance Management", "Branch Restructuring", "Market Expansion", "Distribution Strategy"],
-      "imageUrl": "/images/azmain-adil.jpeg",
+      "skills": [
+        "Strategic Operations",
+        "Performance Management",
+        "Branch Restructuring",
+        "Market Expansion",
+        "Distribution Strategy"
+      ],
+      "imageUrl": "/images/branches-distribution-gdi-highlights-2025.jpg",
       "featured": true
     },
     {
       "id": "exp-2",
       "company": "Green Delta Insurance PLC",
       "role": "Deputy Manager",
-      "subRole": "Key Account Management & Revenue Growth",
+      "subRole": "Key Account Management & Strategic Partnerships",
       "period": "02/2022 – 12/2024",
       "location": "Dhaka, Bangladesh",
       "badge": "PROMOTED",
@@ -183,8 +196,14 @@
         "Evaluated macroeconomic and market trends to deliver tailored risk management portfolios",
         "Mentored and motivated high-performing junior teams toward unified corporate targets"
       ],
-      "skills": ["Client Retention", "Sales Target Leadership", "Cross-Selling", "Market Trend Analysis", "Team Motivation"],
-      "imageUrl": "/images/annual-business-conference-2024-award.jpeg",
+      "skills": [
+        "Client Retention",
+        "Sales Target Leadership",
+        "Cross-Selling",
+        "Market Trend Analysis",
+        "Team Motivation"
+      ],
+      "imageUrl": "/images/idlc-finance-agreement-signing-green-delta.jpeg",
       "featured": true
     },
     {
@@ -206,8 +225,13 @@
         "Facilitated transparent inter-departmental communication channels",
         "Developed cross-functional organizational workflows"
       ],
-      "skills": ["Cross-Functional Collaboration", "Underwriting Protocols", "Inter-Departmental Communication", "Claims Workflow"],
-      "imageUrl": "/images/excellence-insurance-selling.jpeg",
+      "skills": [
+        "Cross-Functional Collaboration",
+        "Underwriting Protocols",
+        "Inter-Departmental Communication",
+        "Claims Workflow"
+      ],
+      "imageUrl": "/images/half-yearly-business-conference-2023-speech.jpeg",
       "featured": false
     },
     {
@@ -230,7 +254,13 @@
         "Evaluated client fiscal horizons to structure resilient investment programs",
         "Analyzed market trends to capture emerging retail wealth preservation opportunities"
       ],
-      "skills": ["Investments", "Life Insurance", "Retirement Planning", "Customer Relationship Management", "Financial Needs Analysis"],
+      "skills": [
+        "Investments",
+        "Life Insurance",
+        "Retirement Planning",
+        "Customer Relationship Management",
+        "Financial Needs Analysis"
+      ],
       "imageUrl": "/images/card_insurance_ops.jpg",
       "featured": false
     },
@@ -254,7 +284,13 @@
         "Ensured rigorous compliance with foreign exchange and central bank trade regulations",
         "Supported senior bankers in structuring import/export credit solutions for commercial clients"
       ],
-      "skills": ["Letters of Credit", "Bank Guarantees", "Documentary Collections", "Trade Compliance", "International Transactions"],
+      "skills": [
+        "Letters of Credit",
+        "Bank Guarantees",
+        "Documentary Collections",
+        "Trade Compliance",
+        "International Transactions"
+      ],
       "imageUrl": "/images/card_insurance_ops.jpg",
       "featured": false
     }
@@ -274,7 +310,7 @@
         "In-depth research on emerging non-life insurance markets in South Asia",
         "Rigorous training in claim litigation and settlement mechanisms"
       ],
-      "imageUrl": "/images/card_academic_du.jpg"
+      "imageUrl": "/images/du-convocation-azmain-adil.jpeg"
     },
     {
       "id": "edu-2",
@@ -290,7 +326,7 @@
         "Honors coursework in Credit Risk, Corporate Finance, and Macroeconomics",
         "Active participation in national business case competitions"
       ],
-      "imageUrl": "/images/card_academic_du.jpg"
+      "imageUrl": "/images/du-convocation-azmain-adil.jpeg"
     },
     {
       "id": "edu-3",
@@ -346,7 +382,12 @@
       "title": "Fundamental of Credit Management",
       "issuer": "Corporate Finance Institute (CFI)",
       "badge": "FINANCE",
-      "tags": ["CFI", "Credit Risk", "Financial Assessment", "Underwriting"],
+      "tags": [
+        "CFI",
+        "Credit Risk",
+        "Financial Assessment",
+        "Underwriting"
+      ],
       "description": "Professional mastery of credit evaluation, corporate solvency metrics, default risk assessment, and structured lending guidelines.",
       "imageUrl": "/images/card_insurance_ops.jpg"
     },
@@ -355,7 +396,12 @@
       "title": "Fundamentals of Digital Marketing",
       "issuer": "Google Digital Garage",
       "badge": "MARKETING",
-      "tags": ["Google", "Digital Strategy", "Customer Acquisition", "Analytics"],
+      "tags": [
+        "Google",
+        "Digital Strategy",
+        "Customer Acquisition",
+        "Analytics"
+      ],
       "description": "Certified competencies in search engine visibility, omnichannel customer acquisition funnels, digital branding, and data-driven engagement.",
       "imageUrl": "/images/card_insurance_ops.jpg"
     },
@@ -364,7 +410,12 @@
       "title": "Digital Security Essentials",
       "issuer": "Digital Security Agency",
       "badge": "CYBERSECURITY",
-      "tags": ["Information Security", "Risk Mitigation", "Compliance", "Data Protection"],
+      "tags": [
+        "Information Security",
+        "Risk Mitigation",
+        "Compliance",
+        "Data Protection"
+      ],
       "description": "Standards and operational procedures for safeguarding sensitive enterprise financial data, user confidentiality, and regulatory cyber compliance.",
       "imageUrl": "/images/card_insurance_ops.jpg"
     },
@@ -373,16 +424,26 @@
       "title": "Effective Sales Lead Generation",
       "issuer": "Professional Advancement Bangladesh Limited (PABL)",
       "badge": "BUSINESS DEV",
-      "tags": ["PABL", "Pipeline Strategy", "B2B Prospecting", "Conversion"],
+      "tags": [
+        "PABL",
+        "Pipeline Strategy",
+        "B2B Prospecting",
+        "Conversion"
+      ],
       "description": "Systematic frameworks for identifying enterprise prospect funnels, executing outbound qualification, and optimizing corporate closing ratios.",
-      "imageUrl": "/images/card_insurance_ops.jpg"
+      "imageUrl": "/images/art-of-the-pitch-knowledge-sharing.jpeg"
     },
     {
       "id": "cert-5",
       "title": "Effective Communication and Business Ethics",
       "issuer": "Bangladesh Skill Bank",
       "badge": "ETHICS & LEADERSHIP",
-      "tags": ["Skill Bank", "Business Ethics", "Executive Communication", "Negotiation"],
+      "tags": [
+        "Skill Bank",
+        "Business Ethics",
+        "Executive Communication",
+        "Negotiation"
+      ],
       "description": "Completed intensive executive training and certified in high-stakes corporate communication, professional business ethics, diplomatic negotiation, and cross-functional leadership alignment arranged by Bangladesh Skill Bank.",
       "imageUrl": "/images/bangladesh-skill-bank-communication-ethics-certificate.jpeg"
     },
@@ -391,7 +452,11 @@
       "title": "Sales & Relationship Management",
       "issuer": "Career Coach Training Solutions",
       "badge": "RELATIONSHIP",
-      "tags": ["Account Growth", "Client Retention", "Strategic Partnerships"],
+      "tags": [
+        "Account Growth",
+        "Client Retention",
+        "Strategic Partnerships"
+      ],
       "description": "Advanced methodologies for high-value client relationship cultivation, strategic account retention, and multi-tier institutional engagement.",
       "imageUrl": "/images/card_insurance_ops.jpg"
     },
@@ -400,7 +465,12 @@
       "title": "Analysis of Marine Cargo Clauses",
       "issuer": "Bangladesh Insurance Academy (BIA)",
       "badge": "RISK SPEC",
-      "tags": ["BIA", "Marine Cargo", "Institute Cargo Clauses", "Maritime Law"],
+      "tags": [
+        "BIA",
+        "Marine Cargo",
+        "Institute Cargo Clauses",
+        "Maritime Law"
+      ],
       "description": "Comprehensive legal and operational dissection of Institute Cargo Clauses (A, B, C), international maritime transit liabilities, and claims adjustment.",
       "imageUrl": "/images/card_insurance_ops.jpg"
     },
@@ -409,7 +479,12 @@
       "title": "Basic Course of Non Life Insurance",
       "issuer": "Bangladesh Insurance Academy (BIA)",
       "badge": "INSURANCE",
-      "tags": ["BIA", "Non-Life", "Property & Casualty", "Reinsurance"],
+      "tags": [
+        "BIA",
+        "Non-Life",
+        "Property & Casualty",
+        "Reinsurance"
+      ],
       "description": "Complete statutory and practical foundations of non-life insurance: fire, marine, engineering, motor, and general accident risk coverage.",
       "imageUrl": "/images/card_insurance_ops.jpg"
     },
@@ -418,7 +493,12 @@
       "title": "Excellence in Insurance Selling",
       "issuer": "Green Delta Insurance PLC",
       "badge": "HONORS",
-      "tags": ["Green Delta", "Sales Excellence", "Training Honors", "Underwriting"],
+      "tags": [
+        "Green Delta",
+        "Sales Excellence",
+        "Training Honors",
+        "Underwriting"
+      ],
       "description": "Awarded Certificate of Training for Excellence in Insurance Selling at Green Delta Insurance PLC, demonstrating mastery in enterprise client acquisition and insurance portfolio growth.",
       "imageUrl": "/images/excellence-insurance-selling.jpeg"
     },
@@ -427,7 +507,12 @@
       "title": "Refresher Course on Non-Life Insurance",
       "issuer": "Birla Institute of Management Technology (BIMTECH)",
       "badge": "AACSB ACCREDITED",
-      "tags": ["BIMTECH", "Non-Life Insurance", "Executive Refresher", "India"],
+      "tags": [
+        "BIMTECH",
+        "Non-Life Insurance",
+        "Executive Refresher",
+        "India"
+      ],
       "description": "Completed intensive AACSB-accredited executive refresher program on non-life insurance underwriting, digital transformation, and global risk management at BIMTECH, Greater Noida, India.",
       "imageUrl": "/images/bimtech-certificate-valedictory.jpeg"
     },
@@ -436,7 +521,12 @@
       "title": "Bangladesh Maritime Security & Sanctions Enforcement",
       "issuer": "CRDF Global",
       "badge": "MARITIME SECURITY",
-      "tags": ["CRDF Global", "Maritime Security", "Sanctions Enforcement", "Marine Risk"],
+      "tags": [
+        "CRDF Global",
+        "Maritime Security",
+        "Sanctions Enforcement",
+        "Marine Risk"
+      ],
       "description": "Conferred certificate upon completion of the high-level executive course on Bangladesh Maritime Security & Sanctions Enforcement arranged by CRDF Global with international delegates and risk specialists.",
       "imageUrl": "/images/crdf-global-maritime-security-sanctions-conference.jpeg"
     }
@@ -449,7 +539,12 @@
       "category": "Operational Strategy",
       "badge": "STRATEGY",
       "period": "2024 – Present",
-      "tags": ["Branch Restructuring", "KPI Optimization", "Growth Supervision", "Operations"],
+      "tags": [
+        "Branch Restructuring",
+        "KPI Optimization",
+        "Growth Supervision",
+        "Operations"
+      ],
       "shortDescription": "Spearheaded organizational restructuring and digital operational governance across 20 regional branches, driving profitability and alignment.",
       "fullDescription": [
         "Spearheaded comprehensive diagnostic audits and turnaround programs across 20 metropolitan and mufassil branches.",
@@ -461,7 +556,7 @@
         "Formulating tailored business development targets for each regional market",
         "Supervising remote branch leadership and establishing continuous accountability loops"
       ],
-      "imageUrl": "/images/azmain-adil.jpeg"
+      "imageUrl": "/images/branches-distribution-gdi-highlights-2025.jpg"
     },
     {
       "id": "proj-2",
@@ -470,7 +565,11 @@
       "category": "Academic Enterprise",
       "badge": "VENTURE",
       "period": "04/2023 – Present",
-      "tags": ["Managing Partner", "Curriculum Strategy", "Academic Operations"],
+      "tags": [
+        "Managing Partner",
+        "Curriculum Strategy",
+        "Academic Operations"
+      ],
       "shortDescription": "Co-founded and managing high-caliber educational venture providing structured skill enhancement and professional coaching.",
       "fullDescription": [
         "Serving as Managing Partner, overseeing institutional strategy, fiscal planning, and mentor recruitment.",
@@ -491,7 +590,12 @@
       "badge": "LEADERSHIP",
       "period": "01/2016 – 12/2023",
       "location": "Dhaka, Bangladesh",
-      "tags": ["Branch Director", "Senior Instructor", "Mentorship", "Growth"],
+      "tags": [
+        "Branch Director",
+        "Senior Instructor",
+        "Mentorship",
+        "Growth"
+      ],
       "shortDescription": "Directed branch administrative operations and instructed hundreds of aspiring students, achieving stellar public university entrance placements.",
       "fullDescription": [
         "Directed branch-level operational administration, faculty scheduling, and admissions enrollment for 8 years.",
@@ -502,7 +606,7 @@
         "Mentoring high-potential cohorts and tailoring specialized mock-exam analytics",
         "Driving student enrollment growth through high success rates and community trust"
       ],
-      "imageUrl": "/images/card_academic_du.jpg"
+      "imageUrl": "/images/du-career-talk-keynote-green-delta.jpeg"
     },
     {
       "id": "proj-4",
@@ -511,7 +615,13 @@
       "category": "Risk Management",
       "badge": "MARITIME & SANCTIONS",
       "period": "2023 – Present",
-      "tags": ["CRDF Global", "Maritime Security", "Sanctions Enforcement", "Reinsurance", "Marine Transit"],
+      "tags": [
+        "CRDF Global",
+        "Maritime Security",
+        "Sanctions Enforcement",
+        "Reinsurance",
+        "Marine Transit"
+      ],
       "shortDescription": "Structured institutional underwriting and sanctions enforcement compliance frameworks for high-value marine cargo, transit risk, and international maritime security.",
       "fullDescription": [
         "Completed specialized executive certification on Bangladesh Maritime Security & Sanctions Enforcement arranged by CRDF Global.",
@@ -533,7 +643,12 @@
       "badge": "AWARD",
       "period": "2024",
       "location": "Dhaka, Bangladesh",
-      "tags": ["Millionaire Club", "Revenue Leadership", "Annual Conference", "Recognition"],
+      "tags": [
+        "Millionaire Club",
+        "Revenue Leadership",
+        "Annual Conference",
+        "Recognition"
+      ],
       "shortDescription": "Awarded for exceptional business contribution and surpassing corporate targets at the Green Delta Insurance Annual Business Conference 2024.",
       "fullDescription": [
         "Recognized on stage by senior executive leadership at the Annual Business Conference 2024 under the prestigious 'BACK ON TRACK / MILLIONAIRE CLUB'.",
@@ -555,7 +670,12 @@
       "badge": "AWARD 2023",
       "period": "2023",
       "location": "Dhaka, Bangladesh",
-      "tags": ["Managing Director & CEO", "Boardroom Honors", "Business Contribution", "Leadership"],
+      "tags": [
+        "Managing Director & CEO",
+        "Boardroom Honors",
+        "Business Contribution",
+        "Leadership"
+      ],
       "shortDescription": "Conferred the prestigious Business Contribution Award for 2023 by Managing Director & CEO Farzanah Chowdhury and the Green Delta Insurance Board of Directors.",
       "fullDescription": [
         "Formally recognized in the executive boardroom by Green Delta Insurance PLC top leadership, including the Managing Director & CEO and senior board members.",
@@ -568,6 +688,83 @@
         "Collaborating with C-suite leadership to align regional branch distribution with corporate goals"
       ],
       "imageUrl": "/images/green-delta-business-contribution-2023-award.jpeg"
+    },
+    {
+      "id": "proj-7",
+      "title": "Green Delta & IDLC Finance Institutional Partnership Agreement",
+      "subtitle": "Consumer Division Strategic Partnership Signing",
+      "category": "Strategic Partnership",
+      "badge": "IDLC PARTNERSHIP",
+      "period": "2024",
+      "location": "Dhaka, Bangladesh",
+      "tags": [
+        "IDLC Finance",
+        "Farzanah Chowdhury",
+        "Institutional Growth",
+        "Consumer Division"
+      ],
+      "shortDescription": "Key signing ceremony with IDLC Finance PLC Consumer Division leadership and Managing Director & CEO Farzanah Chowdhury.",
+      "fullDescription": [
+        "Facilitated and participated in the high-stakes institutional partnership agreement signing between Green Delta Insurance PLC and the Consumer Division of IDLC Finance PLC.",
+        "Collaborated with C-suite and division heads to expand non-life insurance cross-distribution across retail and commercial financing segments."
+      ],
+      "responsibilities": [
+        "Structuring commercial insurance underwriting protocols for consumer financing portfolios",
+        "Facilitating bilateral corporate alignment between Green Delta executive management and IDLC leadership",
+        "Driving high-margin revenue acceleration through institutional channel distribution"
+      ],
+      "imageUrl": "/images/idlc-finance-agreement-signing-green-delta.jpeg"
+    },
+    {
+      "id": "proj-8",
+      "title": "University of Dhaka Career Mentorship & Keynote",
+      "subtitle": "Department of Banking & Insurance · Faculty of Business Studies",
+      "category": "Academic Mentorship",
+      "badge": "DU KEYNOTE",
+      "period": "2024",
+      "location": "Dhaka, Bangladesh",
+      "tags": [
+        "University of Dhaka",
+        "Farzanah Chowdhury",
+        "Dr. Hasina Sheykh",
+        "Career Talk"
+      ],
+      "shortDescription": "Keynote speaker on stage at University of Dhaka Career Talk alongside MD Farzanah Chowdhury and Dept Chairman Dr. Hasina Sheykh.",
+      "fullDescription": [
+        "Invited keynote speaker at the University of Dhaka Faculty of Business Studies for the Green Delta Insurance Career Talk.",
+        "Addressed hundreds of business students and future insurance practitioners on industry career trajectories, modern underwriting, and leadership."
+      ],
+      "responsibilities": [
+        "Delivering address on career dynamics in non-life insurance and banking",
+        "Representing Green Delta Insurance alongside Managing Director & CEO Farzanah Chowdhury",
+        "Mentoring graduating cohorts on industry-academia transitions"
+      ],
+      "imageUrl": "/images/du-career-talk-keynote-green-delta.jpeg"
+    },
+    {
+      "id": "proj-9",
+      "title": "Green Delta Office Olympics 2023 Leadership Recognition",
+      "subtitle": "Presented by Founding MD Nasir A. Choudhury & MD Farzanah Chowdhury",
+      "category": "Corporate Honors",
+      "badge": "OLYMPICS 2023",
+      "period": "2023",
+      "location": "Dhaka, Bangladesh",
+      "tags": [
+        "Nasir A. Choudhury",
+        "Farzanah Chowdhury",
+        "Culture & Leadership",
+        "Recognition"
+      ],
+      "shortDescription": "Awarded Certificate of Appreciation by Founding MD Nasir A. Choudhury and MD & CEO Farzanah Chowdhury.",
+      "fullDescription": [
+        "Honored on stage at Green Delta Office Olympics 2023 with the Certificate of Appreciation presented by industry legend Nasir A. Choudhury and Managing Director & CEO Farzanah Chowdhury.",
+        "Celebrated for dynamic organizational leadership, team culture, and corporate sportsmanship."
+      ],
+      "responsibilities": [
+        "Fostering cross-departmental engagement and team camaraderie",
+        "Representing rising executive leadership at corporate culture milestones"
+      ],
+      "imageUrl": "/images/green-delta-office-olympics-2023.jpg"
     }
   ],
   "upcomingProjects": [
@@ -578,7 +775,12 @@
       "category": "Social Impact",
       "badge": "PRESIDENT",
       "period": "11/2013 – Present",
-      "tags": ["President", "Charity Programs", "Youth Empowerment", "Funding & Implementation"],
+      "tags": [
+        "President",
+        "Charity Programs",
+        "Youth Empowerment",
+        "Funding & Implementation"
+      ],
       "shortDescription": "Directing nationwide youth development, funding charity initiatives, and leading social impact programs empowering underprivileged communities.",
       "fullDescription": [
         "Serving as President since 2013, conceiving, planning, and executing social development programs including nationwide charity drives, blood donation clinics, and educational aid.",
@@ -589,7 +791,7 @@
         "Securing sponsorship funding and managing community capital deployment",
         "Overseeing volunteer teams to execute food, winter relief, and educational programs"
       ],
-      "imageUrl": "/images/card_academic_du.jpg"
+      "imageUrl": "/images/azmain-plaid-blazer-gala.jpeg"
     },
     {
       "id": "up-2",
@@ -598,7 +800,12 @@
       "category": "Social Leadership",
       "badge": "VOLUNTEER",
       "period": "06/2011 – Present",
-      "tags": ["Ahoban Foundation", "Social Welfare", "Disaster Relief", "Charitable Events"],
+      "tags": [
+        "Ahoban Foundation",
+        "Social Welfare",
+        "Disaster Relief",
+        "Charitable Events"
+      ],
       "shortDescription": "Actively participating in social and charitable events organized by Ahoban Foundation for over a decade.",
       "fullDescription": [
         "Consistently engaged in ground-level humanitarian welfare drives, medical relief camps, and emergency distribution initiatives across Dhaka."
@@ -607,7 +814,7 @@
         "Participating in emergency relief distribution and social campaigns",
         "Coordinating field logistics for free health and education outreach"
       ],
-      "imageUrl": "/images/card_academic_du.jpg"
+      "imageUrl": "/images/azmain-cinematic-bw.jpeg"
     },
     {
       "id": "up-3",
@@ -616,7 +823,12 @@
       "category": "Professional Community",
       "badge": "AMBASSADOR",
       "period": "09/2020 – 12/2022",
-      "tags": ["ABP", "Campus Ambassador", "Professional Networking", "Youth Leadership"],
+      "tags": [
+        "ABP",
+        "Campus Ambassador",
+        "Professional Networking",
+        "Youth Leadership"
+      ],
       "shortDescription": "Represented ABP at University of Dhaka, championing professional certifications and connecting students with corporate mentors.",
       "fullDescription": [
         "Organized professional development workshops, certification seminars, and industry-academia networking summits."
@@ -625,7 +837,7 @@
         "Fostering campus awareness of global certifications and modern industry trends",
         "Facilitating career mentoring sessions between corporate leaders and undergraduates"
       ],
-      "imageUrl": "/images/card_academic_du.jpg"
+      "imageUrl": "/images/azmain-executive-editorial-full.jpeg"
     },
     {
       "id": "up-4",
@@ -634,7 +846,12 @@
       "category": "Future Initiative",
       "badge": "UPCOMING",
       "period": "2026 – Future",
-      "tags": ["InsurTech", "Micro-Insurance", "Digital Distribution", "Bangladesh 2026"],
+      "tags": [
+        "InsurTech",
+        "Micro-Insurance",
+        "Digital Distribution",
+        "Bangladesh 2026"
+      ],
       "shortDescription": "Conceptualizing simplified micro-insurance distribution mechanisms tailored for rural mufassil enterprises and digital retail channels.",
       "fullDescription": [
         "Designing algorithmic micro-underwriting criteria to provide accessible risk protection to previously uninsured small and medium businesses."

@@ -17,12 +17,20 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
 
   const chapters = [
     {
-      title: "Strategic Operations & Branch Restructuring",
+      title: "Strategic Operations & 20-Branch Governance",
       organization: "Green Delta Insurance PLC",
-      period: "2024 – Present",
+      period: "2025 Highlights",
       description:
-        "Keynote presentation and operations supervision across 20 regional branches at the Green Delta Business Conference.",
-      image: "/images/azmain-adil.jpeg",
+        "Operations supervision and performance targets across 20 regional branches as showcased at GDI PLC 2025 Highlights.",
+      image: "/images/branches-distribution-gdi-highlights-2025.jpg",
+    },
+    {
+      title: "Institutional Partnership Signing · IDLC Finance",
+      organization: "Green Delta & IDLC Finance PLC",
+      period: "2024",
+      description:
+        "Bilateral agreement signing ceremony with IDLC Finance Consumer Division Head and Green Delta MD & CEO Farzanah Chowdhury.",
+      image: "/images/idlc-finance-agreement-signing-green-delta.jpeg",
     },
     {
       title: "Annual Business Conference 2024 Award",
@@ -33,12 +41,52 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
       image: "/images/annual-business-conference-2024-award.jpeg",
     },
     {
+      title: "Keynote Address · University of Dhaka Career Talk",
+      organization: "Faculty of Business Studies · DU",
+      period: "2024",
+      description:
+        "Delivering keynote address on insurance industry careers alongside MD & CEO Farzanah Chowdhury and Dept Chairman Dr. Hasina Sheykh.",
+      image: "/images/du-career-talk-keynote-green-delta.jpeg",
+    },
+    {
       title: "Business Contribution Award 2023",
       organization: "Green Delta Insurance PLC",
       period: "2023",
       description:
         "Executive boardroom ceremony presented by Managing Director & CEO Farzanah Chowdhury and the Board of Directors.",
       image: "/images/green-delta-business-contribution-2023-award.jpeg",
+    },
+    {
+      title: "Office Olympics 2023 Leadership Recognition",
+      organization: "Green Delta Insurance PLC",
+      period: "2023",
+      description:
+        "Presented Certificate of Appreciation on stage by Founding MD Nasir A. Choudhury and MD & CEO Farzanah Chowdhury.",
+      image: "/images/green-delta-office-olympics-2023.jpg",
+    },
+    {
+      title: "Half-Yearly Business Conference 2023 Address",
+      organization: "Green Delta Insurance PLC",
+      period: "2023",
+      description:
+        "Speaking on stage before senior leadership and branch managers in the presence of Founding MD Nasir A. Choudhury.",
+      image: "/images/half-yearly-business-conference-2023-speech.jpeg",
+    },
+    {
+      title: "The Art of The Pitch · Knowledge Sharing",
+      organization: "Boardroom Masterclass",
+      period: "Executive Series",
+      description:
+        "Facilitating interactive corporate boardroom session on high-conversion enterprise pitching and client acquisition.",
+      image: "/images/art-of-the-pitch-knowledge-sharing.jpeg",
+    },
+    {
+      title: "Academic Convocation · University of Dhaka",
+      organization: "University of Dhaka",
+      period: "MBA & BBA",
+      description:
+        "Conferred MBA in Insurance and BBA in Banking & Insurance at Aparajeyo Bangla, University of Dhaka.",
+      image: "/images/du-convocation-azmain-adil.jpeg",
     },
     {
       title: "Valedictory Ceremony · BIMTECH India",
@@ -51,9 +99,9 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
     {
       title: "Maritime Security & Sanctions Enforcement",
       organization: "CRDF Global International Conference",
-      period: "Executive Conference",
+      period: "Executive Milestone",
       description:
-        "Conferred certification at the Bangladesh Maritime Security & Sanctions Enforcement Conference arranged by CRDF Global with international delegates.",
+        "Conferred certification at the Bangladesh Maritime Security & Sanctions Enforcement Conference arranged by CRDF Global.",
       image: "/images/crdf-global-maritime-security-sanctions-conference.jpeg",
     },
     {
@@ -63,30 +111,6 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
       description:
         "Certified in corporate diplomacy, business ethics, and stakeholder negotiations arranged by Bangladesh Skill Bank.",
       image: "/images/bangladesh-skill-bank-communication-ethics-certificate.jpeg",
-    },
-    {
-      title: "Excellence in Insurance Selling Honors",
-      organization: "Green Delta Insurance PLC",
-      period: "Executive Milestone",
-      description:
-        "Awarded Certificate of Training for Excellence in Insurance Selling, demonstrating high-volume institutional client growth.",
-      image: "/images/excellence-insurance-selling.jpeg",
-    },
-    {
-      title: "Executive Leadership & Strategic Management",
-      organization: "High-Rise Headquarters & Strategy",
-      period: "2024 – Present",
-      description:
-        "Directing high-stakes corporate planning, distribution frameworks, and strategic institutional partnerships.",
-      image: "/images/azmain-adil-3.jpeg",
-    },
-    {
-      title: "Youth Empowerment & Educational Leadership",
-      organization: "Mind Smiths Academy & PYDSB",
-      period: "2013 – Present",
-      description:
-        "Directing nationwide youth development programs, academic coaching, and social impact initiatives.",
-      image: "/images/azmain-adil-2.jpeg",
     },
   ];
 
@@ -191,7 +215,7 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
                 </button>
 
                 <span className="text-zinc-300 font-mono text-[11px]">
-                  0{activeChapter + 1}:00 / 0{chapters.length}:00
+                  {String(activeChapter + 1).padStart(2, "0")}:00 / {String(chapters.length).padStart(2, "0")}:00
                 </span>
               </div>
 

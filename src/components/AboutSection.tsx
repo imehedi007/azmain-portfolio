@@ -15,19 +15,59 @@ export default function AboutSection({ onOpenContact }: AboutSectionProps) {
 
   const availablePhotos = [
     {
-      id: "portrait-editorial",
-      url: "/images/azmain-adil-2.jpeg",
-      label: "Editorial",
+      id: "crimson-tie",
+      url: "/images/azmain-crimson-tie-portrait.jpeg",
+      label: "Crimson Tie",
     },
     {
-      id: "portrait-terrace",
-      url: "/images/azmain-adil-3.jpeg",
-      label: "Executive",
+      id: "du-convocation",
+      url: "/images/du-convocation-azmain-adil.jpeg",
+      label: "DU Convocation",
     },
     {
-      id: "keynote-speech",
-      url: "/images/azmain-adil.jpeg",
-      label: "Keynote 2026",
+      id: "idlc-signing",
+      url: "/images/idlc-finance-agreement-signing-green-delta.jpeg",
+      label: "IDLC Signing",
+    },
+    {
+      id: "du-career-talk",
+      url: "/images/du-career-talk-keynote-green-delta.jpeg",
+      label: "DU Career Talk",
+    },
+    {
+      id: "gdi-distribution",
+      url: "/images/branches-distribution-gdi-highlights-2025.jpg",
+      label: "GDI Distribution",
+    },
+    {
+      id: "executive-atrium",
+      url: "/images/azmain-executive-atrium.jpeg",
+      label: "Executive Atrium",
+    },
+    {
+      id: "half-yearly-2023",
+      url: "/images/half-yearly-business-conference-2023-speech.jpeg",
+      label: "Conference 2023",
+    },
+    {
+      id: "office-olympics",
+      url: "/images/green-delta-office-olympics-2023.jpg",
+      label: "Office Olympics",
+    },
+    {
+      id: "pitch-coaching",
+      url: "/images/art-of-the-pitch-knowledge-sharing.jpeg",
+      label: "Pitch Coaching",
+    },
+    {
+      id: "gala-night",
+      url: "/images/azmain-plaid-blazer-gala.jpeg",
+      label: "Gala Night",
+    },
+    {
+      id: "editorial-full",
+      url: "/images/azmain-executive-editorial-full.jpeg",
+      label: "Modern Exec",
     },
     {
       id: "annual-conference-2024",
@@ -60,9 +100,9 @@ export default function AboutSection({ onOpenContact }: AboutSectionProps) {
       label: "Selling Honors",
     },
     {
-      id: "official-avatar",
-      url: "/images/azmain_avatar.jpg",
-      label: "CV Profile",
+      id: "keynote-speech",
+      url: "/images/azmain-adil.jpeg",
+      label: "Keynote 2026",
     },
   ];
 
@@ -107,7 +147,7 @@ export default function AboutSection({ onOpenContact }: AboutSectionProps) {
             </div>
 
             {/* Interactive Photo Switcher Chips */}
-            <div className="mt-3.5 flex items-center justify-center gap-1.5 flex-wrap max-w-[320px]">
+            <div className="mt-3.5 flex items-center justify-center gap-1.5 flex-wrap max-w-[360px]">
               {availablePhotos.map((photo) => (
                 <button
                   key={photo.id}

@@ -14,7 +14,7 @@ import {
   ReferenceItem,
 } from "@/types/portfolio";
 
-const STORAGE_KEY = "azmain_portfolio_cms_data_v4";
+const STORAGE_KEY = "azmain_portfolio_cms_data_v5";
 
 interface PortfolioContextType {
   data: PortfolioData;
