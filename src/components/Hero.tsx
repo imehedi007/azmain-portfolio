@@ -17,14 +17,15 @@ export default function Hero({ onOpenVideo, onOpenMoreInfo }: HeroProps) {
   return (
     <section className="relative min-h-screen w-full flex items-center justify-start overflow-hidden bg-[#0a0a0a]">
       {/* Background Cinematic Banner */}
-      <div className="absolute inset-0 z-0 select-none">
+      <div className="absolute inset-0 z-0 select-none overflow-hidden">
         <Image
-          src={profile.heroImageUrl || "/images/azmain-adil-3.jpeg"}
+          src={profile.heroImageUrl || "/images/banner.jpg"}
           alt={`${profile.name} - Executive Hero`}
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[center_18%] md:object-[82%_20%] lg:object-[85%_22%] opacity-90 brightness-95"
+          style={{ top: "5%" }}
+          className="object-cover object-[80%_top] sm:object-[82%_top] md:object-[84%_top] lg:object-[84%_top] scale-[1.04] translate-y-3 sm:translate-y-4 md:translate-y-6 opacity-90 brightness-95"
         />
 
         {/* Netflix gradient overlays */}

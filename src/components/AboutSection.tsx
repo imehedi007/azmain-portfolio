@@ -39,6 +39,16 @@ export default function AboutSection({ onOpenContact }: AboutSectionProps) {
       label: "DU Convocation",
     },
     {
+      id: "du-business-studies",
+      url: "/images/dhaka-university.jpeg",
+      label: "DU Business Studies",
+    },
+    {
+      id: "ahoban-relief",
+      url: "/images/charity.jpeg",
+      label: "Ahoban Relief",
+    },
+    {
       id: "idlc-signing",
       url: "/images/idlc-finance-agreement-signing-green-delta.jpeg",
       label: "IDLC Signing",

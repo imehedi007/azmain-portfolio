@@ -12,7 +12,7 @@
     "dateOfBirth": "30/12/1997",
     "location": "1/19, South Mugdapara, Dhaka, Bangladesh",
     "avatarUrl": "/images/azmain-adil-2.jpeg",
-    "heroImageUrl": "/images/azmain-adil-3.jpeg",
+    "heroImageUrl": "/images/banner.jpg",
     "resumeUrl": "/CV_of_Azmain_Adil.pdf",
     "stats": [
       {
@@ -364,7 +364,7 @@
         "Honors coursework in Credit Risk, Corporate Finance, and Macroeconomics",
         "Active participation in national business case competitions"
       ],
-      "imageUrl": "/images/du-convocation-azmain-adil.jpeg"
+      "imageUrl": "/images/dhaka-university.jpeg"
     },
     {
       "id": "edu-3",
@@ -919,7 +919,7 @@
         "Participating in emergency relief distribution and social campaigns",
         "Coordinating field logistics for free health and education outreach"
       ],
-      "imageUrl": "/images/azmain-cinematic-bw.jpeg"
+      "imageUrl": "/images/charity.jpeg"
     },
     {
       "id": "up-3",
