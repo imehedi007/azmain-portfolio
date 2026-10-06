@@ -75,6 +75,9 @@ export interface CertificationItem {
   tags: string[];
   description: string;
   imageUrl: string;
+  credentialId?: string;
+  issueDate?: string;
+  pdfUrl?: string;
 }
 
 export interface ProjectItem {
@@ -113,8 +116,19 @@ export interface ReferenceItem {
   avatarUrl?: string;
 }
 
+export interface KeyAchievement {
+  id: string;
+  title: string;
+  category: string;
+  metric: string;
+  description: string;
+  tag?: string;
+  icon?: string;
+}
+
 export interface PortfolioData {
   profile: Profile;
+  keyAchievements?: KeyAchievement[];
   brands: BrandItem[];
   experience: ExperienceItem[];
   education: EducationItem[];

@@ -73,13 +73,17 @@ export default function HomePage() {
       bottomText: (cert.tags || []).slice(0, 3).join(" · "),
       imageUrl: cert.imageUrl,
       tags: cert.tags,
+      pdfUrl: cert.pdfUrl,
+      credentialId: cert.credentialId,
       responsibilities: [
         `Issued by: ${cert.issuer}`,
+        ...(cert.credentialId ? [`Credential ID: ${cert.credentialId}`] : []),
+        ...(cert.issueDate ? [`Issue Date: ${cert.issueDate}`] : []),
         cert.description,
-        "Comprehensive industry evaluation and verified credential",
+        "Comprehensive industry evaluation and verified institutional credential",
       ],
       fullDescription: [cert.description],
-      period: "Verified Credential",
+      period: cert.issueDate || "Verified Credential",
       location: cert.issuer,
     }));
   }, [data.certifications]);
@@ -202,7 +206,7 @@ export default function HomePage() {
       <RowCarousel
         id="upcoming"
         title="Upcoming Projects"
-        subtitle="Tools and systems shared with the developer community"
+        subtitle="Social leadership, philanthropic initiatives, and emerging InsurTech frontiers"
         items={upcomingProjectCardItems}
         onCardClick={(item) => setSelectedCard(item)}
       />

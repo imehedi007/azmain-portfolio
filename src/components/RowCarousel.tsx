@@ -10,6 +10,7 @@ interface RowCarouselProps {
   subtitle: string;
   items: CardItem[];
   onCardClick: (item: CardItem) => void;
+  aspectRatio?: "3/4" | "standard";
 }
 
 export default function RowCarousel({
@@ -18,6 +19,7 @@ export default function RowCarousel({
   subtitle,
   items,
   onCardClick,
+  aspectRatio,
 }: RowCarouselProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -73,7 +75,12 @@ export default function RowCarousel({
           className="flex items-stretch gap-5 overflow-x-auto no-scrollbar scroll-smooth py-2 px-1 -mx-1"
         >
           {items.map((item) => (
-            <NetflixCard key={item.id} item={item} onClick={onCardClick} />
+            <NetflixCard
+              key={item.id}
+              item={item}
+              onClick={onCardClick}
+              aspectRatio={aspectRatio}
+            />
           ))}
         </div>
       </div>

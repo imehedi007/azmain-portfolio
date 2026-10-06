@@ -58,6 +58,25 @@
   scrollbar-width: none;
 }
 
+/* Custom sleek scrollbar for executive panel */
+.executive-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #27272a transparent;
+}
+.executive-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.executive-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.executive-scrollbar::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+}
+.executive-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #E50914;
+}
+
 /* Netflix cinematic gradient utilities */
 .netflix-hero-gradient {
   background: linear-gradient(

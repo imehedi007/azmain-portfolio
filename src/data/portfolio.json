@@ -63,6 +63,44 @@
       }
     ]
   },
+  "keyAchievements": [
+    {
+      "id": "achieve-1",
+      "title": "Network Turnaround",
+      "category": "Operational Turnaround",
+      "metric": "-67% → +20% YoY",
+      "description": "Moved a branch network from growth of about -67% to +20% year-on-year within eight months; closed five underperforming branches and reduced operating overhead by about 20%.",
+      "tag": "20-Branch Network · 8 Months",
+      "icon": "TrendingUp"
+    },
+    {
+      "id": "achieve-2",
+      "title": "Digital Distribution",
+      "category": "InsurTech Innovation",
+      "metric": "First in Market",
+      "description": "Helped launch MotoAssurance, a first-in-market digital motor insurance channel in Bangladesh, shifting acquisition toward aggregator-led and direct digital models.",
+      "tag": "MotoAssurance · Direct Digital",
+      "icon": "Zap"
+    },
+    {
+      "id": "achieve-3",
+      "title": "Portfolio and Risk Strategy",
+      "category": "Institutional Underwriting",
+      "metric": "BDT 60–70 Crore",
+      "description": "Restructured a major Tier-1 financial institution portfolio (BDT 60–70 crore, about 15% of company revenue) from concentrated, high-frequency risk toward a diversified 7,000+ policy structure, with a reported improvement of more than 1,000% in loss-ratio performance.",
+      "tag": "Tier-1 FI · 7,000+ Policies",
+      "icon": "ShieldCheck"
+    },
+    {
+      "id": "achieve-4",
+      "title": "Reinsurance Continuity",
+      "category": "Treaty & Regulatory",
+      "metric": "7 Business Days",
+      "description": "Led negotiations to restore a terminated mandatory travel reinsurance treaty within seven business days, protecting portfolio continuity and regulatory compliance.",
+      "tag": "Treaty Restored · Compliance",
+      "icon": "RefreshCw"
+    }
+  ],
   "brands": [
     {
       "id": "brand-1",
@@ -379,65 +417,110 @@
   "certifications": [
     {
       "id": "cert-1",
-      "title": "Fundamental of Credit Management",
+      "title": "Fundamentals of Credit",
       "issuer": "Corporate Finance Institute (CFI)",
       "badge": "FINANCE",
+      "credentialId": "16211419",
+      "issueDate": "Apr 11, 2020",
+      "pdfUrl": "/images/CFI.pdf",
       "tags": [
         "CFI",
         "Credit Risk",
         "Financial Assessment",
         "Underwriting"
       ],
-      "description": "Professional mastery of credit evaluation, corporate solvency metrics, default risk assessment, and structured lending guidelines.",
-      "imageUrl": "/images/card_insurance_ops.jpg"
+      "description": "Conferred by the Board of Directors of Corporate Finance Institute (CFI). Professional mastery in credit risk analysis, financial statement assessment, corporate solvency evaluation, and structured lending guidelines.",
+      "imageUrl": "/images/cert_cfi_credit_management.jpg"
     },
     {
       "id": "cert-2",
-      "title": "Fundamentals of Digital Marketing",
+      "title": "The Fundamentals of Digital Marketing",
       "issuer": "Google Digital Garage",
       "badge": "MARKETING",
+      "credentialId": "DUS NC7 9U8",
+      "issueDate": "Mar 31, 2020",
+      "pdfUrl": "/images/certificate.pdf",
       "tags": [
         "Google",
         "Digital Strategy",
         "Customer Acquisition",
         "Analytics"
       ],
-      "description": "Certified competencies in search engine visibility, omnichannel customer acquisition funnels, digital branding, and data-driven engagement.",
-      "imageUrl": "/images/card_insurance_ops.jpg"
+      "description": "Accredited by Google Digital Garage and endorsed by IAB Europe & The Open University. Comprehensive certification in search engine visibility, omnichannel customer acquisition funnels, digital branding, and data-driven marketing.",
+      "imageUrl": "/images/cert_google_digital_marketing.jpg"
     },
     {
       "id": "cert-3",
       "title": "Digital Security Essentials",
-      "issuer": "Digital Security Agency",
+      "issuer": "Digital Security Agency & a2i",
       "badge": "CYBERSECURITY",
+      "credentialId": "MC-P511541G782788O106G",
+      "issueDate": "Apr 6, 2020",
+      "pdfUrl": "/images/certificate20200406040446.pdf",
       "tags": [
         "Information Security",
         "Risk Mitigation",
         "Compliance",
         "Data Protection"
       ],
-      "description": "Standards and operational procedures for safeguarding sensitive enterprise financial data, user confidentiality, and regulatory cyber compliance.",
-      "imageUrl": "/images/card_insurance_ops.jpg"
+      "description": "Certified in Digital Security Essentials by the Digital Security Agency and Access to Information (a2i) Programme, ICT Division, Government of Bangladesh. Standards for enterprise data security, threat mitigation, and regulatory cyber compliance.",
+      "imageUrl": "/images/cert_digital_security_essentials.jpg"
     },
     {
-      "id": "cert-4",
-      "title": "Effective Sales Lead Generation",
-      "issuer": "Professional Advancement Bangladesh Limited (PABL)",
-      "badge": "BUSINESS DEV",
+      "id": "cert-interview",
+      "title": "Interview Skills",
+      "issuer": "Robi 10 Minute School & MuktoPaath",
+      "badge": "CAREER STRATEGY",
+      "credentialId": "MC-A511541I783046L149D",
+      "issueDate": "Apr 6, 2020",
+      "pdfUrl": "/images/certificate20200406080425.pdf",
       "tags": [
-        "PABL",
-        "Pipeline Strategy",
-        "B2B Prospecting",
-        "Conversion"
+        "10 Minute School",
+        "MuktoPaath",
+        "Interview Methodology",
+        "Talent Evaluation"
       ],
-      "description": "Systematic frameworks for identifying enterprise prospect funnels, executing outbound qualification, and optimizing corporate closing ratios.",
-      "imageUrl": "/images/art-of-the-pitch-knowledge-sharing.jpeg"
+      "description": "Certified in professional interview techniques and executive evaluation methodologies developed by Robi 10 Minute School and offered through MuktoPaath under the Access to Information (a2i) Programme, ICT Division.",
+      "imageUrl": "/images/cert_interview_skills.jpg"
+    },
+    {
+      "id": "cert-speaking",
+      "title": "Public Speaking Fundamentals",
+      "issuer": "Robi 10 Minute School & MuktoPaath",
+      "badge": "COMMUNICATION",
+      "credentialId": "MC-P511541Y783044J204V",
+      "issueDate": "Apr 6, 2020",
+      "pdfUrl": "/images/certificate20200406090408.pdf",
+      "tags": [
+        "10 Minute School",
+        "MuktoPaath",
+        "Executive Rhetoric",
+        "Public Speaking"
+      ],
+      "description": "Certified in public speaking fundamentals, keynote presentation, executive presence, and persuasive rhetoric developed by Robi 10 Minute School and offered through MuktoPaath under the Access to Information (a2i) Programme, ICT Division.",
+      "imageUrl": "/images/cert_public_speaking.jpg"
+    },
+    {
+      "id": "cert-11",
+      "title": "Bangladesh Maritime Security & Sanctions Enforcement",
+      "issuer": "CRDF Global",
+      "badge": "MARITIME SECURITY",
+      "issueDate": "Executive Credential",
+      "tags": [
+        "CRDF Global",
+        "Maritime Security",
+        "Sanctions Enforcement",
+        "Marine Risk"
+      ],
+      "description": "Conferred certificate upon completion of the high-level executive course on Bangladesh Maritime Security & Sanctions Enforcement arranged by CRDF Global with international delegates and risk specialists.",
+      "imageUrl": "/images/crdf-global-maritime-security-sanctions-conference.jpeg"
     },
     {
       "id": "cert-5",
       "title": "Effective Communication and Business Ethics",
       "issuer": "Bangladesh Skill Bank",
       "badge": "ETHICS & LEADERSHIP",
+      "issueDate": "Executive Credential",
       "tags": [
         "Skill Bank",
         "Business Ethics",
@@ -448,23 +531,71 @@
       "imageUrl": "/images/bangladesh-skill-bank-communication-ethics-certificate.jpeg"
     },
     {
-      "id": "cert-6",
-      "title": "Sales & Relationship Management",
-      "issuer": "Career Coach Training Solutions",
-      "badge": "RELATIONSHIP",
+      "id": "cert-10",
+      "title": "Refresher Course on Non-Life Insurance",
+      "issuer": "Birla Institute of Management Technology (BIMTECH)",
+      "badge": "AACSB ACCREDITED",
+      "issueDate": "Executive Development",
       "tags": [
-        "Account Growth",
-        "Client Retention",
-        "Strategic Partnerships"
+        "BIMTECH",
+        "Non-Life Insurance",
+        "Executive Refresher",
+        "India"
       ],
-      "description": "Advanced methodologies for high-value client relationship cultivation, strategic account retention, and multi-tier institutional engagement.",
-      "imageUrl": "/images/card_insurance_ops.jpg"
+      "description": "Completed intensive AACSB-accredited executive refresher program on non-life insurance underwriting, digital transformation, and global risk management at BIMTECH, Greater Noida, India.",
+      "imageUrl": "/images/bimtech-certificate-valedictory.jpeg"
+    },
+    {
+      "id": "cert-9",
+      "title": "Excellence in Insurance Selling",
+      "issuer": "Green Delta Insurance PLC",
+      "badge": "HONORS",
+      "issueDate": "Performance Honors",
+      "tags": [
+        "Green Delta",
+        "Sales Excellence",
+        "Training Honors",
+        "Underwriting"
+      ],
+      "description": "Awarded Certificate of Training for Excellence in Insurance Selling at Green Delta Insurance PLC, demonstrating mastery in enterprise client acquisition and insurance portfolio growth.",
+      "imageUrl": "/images/excellence-insurance-selling.jpeg"
+    },
+    {
+      "id": "award-2024",
+      "title": "Business Contribution Award 2024",
+      "issuer": "Green Delta Insurance PLC",
+      "badge": "EXECUTIVE AWARD",
+      "issueDate": "Annual Conference 2024",
+      "tags": [
+        "Annual Conference 2024",
+        "Business Impact",
+        "Leadership",
+        "Green Delta"
+      ],
+      "description": "Recognized and awarded for outstanding business contribution at the Annual Business Conference 2024, honoring leadership in portfolio expansion and operational profitability.",
+      "imageUrl": "/images/annual-business-conference-2024-award.jpeg"
+    },
+    {
+      "id": "award-2023",
+      "title": "Business Contribution Award 2023",
+      "issuer": "Green Delta Insurance PLC",
+      "badge": "EXECUTIVE AWARD",
+      "issueDate": "Annual Conference 2023",
+      "tags": [
+        "Annual Conference 2023",
+        "Performance Honors",
+        "Turnaround",
+        "Green Delta"
+      ],
+      "description": "Awarded Business Contribution Honors for the year 2023 at Green Delta Insurance PLC for exemplary branch turnaround performance and institutional account growth.",
+      "imageUrl": "/images/green-delta-business-contribution-2023-award.jpeg"
     },
     {
       "id": "cert-7",
       "title": "Analysis of Marine Cargo Clauses",
       "issuer": "Bangladesh Insurance Academy (BIA)",
       "badge": "RISK SPEC",
+      "issueDate": "Statutory Academy",
       "tags": [
         "BIA",
         "Marine Cargo",
@@ -479,6 +610,7 @@
       "title": "Basic Course of Non Life Insurance",
       "issuer": "Bangladesh Insurance Academy (BIA)",
       "badge": "INSURANCE",
+      "issueDate": "Statutory Academy",
       "tags": [
         "BIA",
         "Non-Life",
@@ -486,49 +618,22 @@
         "Reinsurance"
       ],
       "description": "Complete statutory and practical foundations of non-life insurance: fire, marine, engineering, motor, and general accident risk coverage.",
-      "imageUrl": "/images/card_insurance_ops.jpg"
+      "imageUrl": "/images/card_academic_du.jpg"
     },
     {
-      "id": "cert-9",
-      "title": "Excellence in Insurance Selling",
-      "issuer": "Green Delta Insurance PLC",
-      "badge": "HONORS",
+      "id": "cert-4",
+      "title": "Effective Sales Lead Generation",
+      "issuer": "Professional Advancement Bangladesh Limited (PABL)",
+      "badge": "BUSINESS DEV",
+      "issueDate": "Executive Training",
       "tags": [
-        "Green Delta",
-        "Sales Excellence",
-        "Training Honors",
-        "Underwriting"
+        "PABL",
+        "Pipeline Strategy",
+        "B2B Prospecting",
+        "Conversion"
       ],
-      "description": "Awarded Certificate of Training for Excellence in Insurance Selling at Green Delta Insurance PLC, demonstrating mastery in enterprise client acquisition and insurance portfolio growth.",
-      "imageUrl": "/images/excellence-insurance-selling.jpeg"
-    },
-    {
-      "id": "cert-10",
-      "title": "Refresher Course on Non-Life Insurance",
-      "issuer": "Birla Institute of Management Technology (BIMTECH)",
-      "badge": "AACSB ACCREDITED",
-      "tags": [
-        "BIMTECH",
-        "Non-Life Insurance",
-        "Executive Refresher",
-        "India"
-      ],
-      "description": "Completed intensive AACSB-accredited executive refresher program on non-life insurance underwriting, digital transformation, and global risk management at BIMTECH, Greater Noida, India.",
-      "imageUrl": "/images/bimtech-certificate-valedictory.jpeg"
-    },
-    {
-      "id": "cert-11",
-      "title": "Bangladesh Maritime Security & Sanctions Enforcement",
-      "issuer": "CRDF Global",
-      "badge": "MARITIME SECURITY",
-      "tags": [
-        "CRDF Global",
-        "Maritime Security",
-        "Sanctions Enforcement",
-        "Marine Risk"
-      ],
-      "description": "Conferred certificate upon completion of the high-level executive course on Bangladesh Maritime Security & Sanctions Enforcement arranged by CRDF Global with international delegates and risk specialists.",
-      "imageUrl": "/images/crdf-global-maritime-security-sanctions-conference.jpeg"
+      "description": "Systematic frameworks for identifying enterprise prospect funnels, executing outbound qualification, and optimizing corporate closing ratios.",
+      "imageUrl": "/images/art-of-the-pitch-knowledge-sharing.jpeg"
     }
   ],
   "featuredProjects": [

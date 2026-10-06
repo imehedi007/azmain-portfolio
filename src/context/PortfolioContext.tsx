@@ -12,9 +12,10 @@ import {
   SkillCategory,
   BrandItem,
   ReferenceItem,
+  KeyAchievement,
 } from "@/types/portfolio";
 
-const STORAGE_KEY = "azmain_portfolio_cms_data_v5";
+const STORAGE_KEY = "azmain_portfolio_cms_data_v6";
 
 interface PortfolioContextType {
   data: PortfolioData;
@@ -22,6 +23,7 @@ interface PortfolioContextType {
   isCustomized: boolean;
   updateData: (newData: PortfolioData) => Promise<boolean>;
   updateProfile: (profile: Partial<Profile>) => void;
+  updateKeyAchievements: (items: KeyAchievement[]) => void;
   updateExperience: (items: ExperienceItem[]) => void;
   updateEducation: (items: EducationItem[]) => void;
   updateCertifications: (items: CertificationItem[]) => void;
@@ -99,6 +101,10 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
       profile: { ...data.profile, ...profileUpdate },
     };
     saveToStorageAndState(updated);
+  };
+
+  const updateKeyAchievements = (keyAchievements: KeyAchievement[]) => {
+    saveToStorageAndState({ ...data, keyAchievements });
   };
 
   const updateExperience = (experience: ExperienceItem[]) => {
@@ -180,6 +186,7 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
         isCustomized,
         updateData: saveToStorageAndState,
         updateProfile,
+        updateKeyAchievements,
         updateExperience,
         updateEducation,
         updateCertifications,

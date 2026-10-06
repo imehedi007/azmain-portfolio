@@ -17,31 +17,70 @@ export interface CardItem {
   fullDescription?: string[];
   period?: string;
   location?: string;
+  pdfUrl?: string;
+  credentialId?: string;
+  aspectRatio?: "3/4" | "standard";
 }
 
 interface NetflixCardProps {
   item: CardItem;
   onClick: (item: CardItem) => void;
+  aspectRatio?: "3/4" | "standard";
 }
 
-export default function NetflixCard({ item, onClick }: NetflixCardProps) {
+export default function NetflixCard({
+  item,
+  onClick,
+  aspectRatio,
+}: NetflixCardProps) {
+  const isPortrait34 =
+    aspectRatio === "3/4" || item.aspectRatio === "3/4";
+
+  const isCert =
+    item.imageUrl.includes("cert_") ||
+    item.imageUrl.includes("certificate") ||
+    item.imageUrl.includes("digital marketing") ||
+    item.imageUrl.includes("CFI");
+
   return (
     <div
       onClick={() => onClick(item)}
-      className="group relative flex-shrink-0 w-[300px] sm:w-[350px] md:w-[370px] bg-[#141414] hover:bg-[#181818] border border-white/10 hover:border-red-600/40 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.025] hover:-translate-y-1.5 shadow-xl hover:shadow-2xl hover:shadow-red-950/25 flex flex-col justify-between"
+      className={`group relative flex-shrink-0 ${
+        isPortrait34
+          ? "w-[270px] sm:w-[300px] md:w-[320px]"
+          : "w-[300px] sm:w-[350px] md:w-[370px]"
+      } bg-[#141414] hover:bg-[#181818] border border-white/10 hover:border-red-600/40 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.025] hover:-translate-y-1.5 shadow-xl hover:shadow-2xl hover:shadow-red-950/25 flex flex-col justify-between`}
     >
-      {/* Top Image Container - Significantly expanded height so images are the primary focus */}
-      <div className="relative h-64 sm:h-72 md:h-80 w-full overflow-hidden bg-zinc-950">
+      {/* Top Image Container - Supports 3:4 portrait or standard dynamic height */}
+      <div
+        className={`relative w-full overflow-hidden bg-zinc-950 ${
+          isPortrait34 ? "aspect-[3/4]" : "h-64 sm:h-72 md:h-80"
+        }`}
+      >
         <Image
           src={item.imageUrl || "/images/card_insurance_ops.jpg"}
           alt={item.title}
           fill
-          sizes="(max-width: 768px) 300px, 370px"
-          className="object-cover object-[center_18%] group-hover:scale-105 transition-transform duration-500 ease-out brightness-95 group-hover:brightness-105"
+          sizes={
+            isPortrait34
+              ? "(max-width: 768px) 270px, 320px"
+              : "(max-width: 768px) 300px, 370px"
+          }
+          className={`object-cover ${
+            isCert
+              ? "object-center"
+              : isPortrait34
+              ? "object-[center_16%]"
+              : "object-[center_18%]"
+          } group-hover:scale-105 transition-transform duration-500 ease-out brightness-95 group-hover:brightness-105`}
         />
 
-        {/* Subtle bottom fade to gently transition image into card body without darkening faces */}
-        <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[#141414] to-transparent pointer-events-none" />
+        {/* Subtle bottom fade to gently transition image into card body */}
+        <div
+          className={`absolute bottom-0 inset-x-0 ${
+            isCert ? "h-10" : "h-16"
+          } bg-gradient-to-t from-[#141414] to-transparent pointer-events-none`}
+        />
 
         {/* Refined Frosted Glass Category Badge */}
         {item.badge && (
