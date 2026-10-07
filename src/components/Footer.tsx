@@ -67,13 +67,13 @@ export default function Footer({ onOpenContact }: FooterProps) {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#work" className="hover:text-white transition-colors">
-                  Work Experience
+                <a href="#about" className="hover:text-white transition-colors">
+                  About &amp; Background
                 </a>
               </li>
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
-                  About & Background
+                <a href="#experience" className="hover:text-white transition-colors">
+                  Work Experience
                 </a>
               </li>
               <li>
@@ -83,12 +83,17 @@ export default function Footer({ onOpenContact }: FooterProps) {
               </li>
               <li>
                 <a href="#certifications" className="hover:text-white transition-colors">
-                  Awards & Certifications
+                  Awards &amp; Certifications
+                </a>
+              </li>
+              <li>
+                <a href="#work" className="hover:text-white transition-colors">
+                  Feature Projects
                 </a>
               </li>
               <li>
                 <a href="#skills" className="hover:text-white transition-colors">
-                  Skills & Matrix
+                  Skills &amp; Matrix
                 </a>
               </li>
               <li>

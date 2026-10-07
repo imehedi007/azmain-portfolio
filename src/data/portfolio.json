@@ -638,6 +638,86 @@
   ],
   "featuredProjects": [
     {
+      "id": "proj-6",
+      "title": "Business Contribution Award 2023",
+      "subtitle": "Board of Directors & Executive Recognition · Green Delta Insurance",
+      "category": "Corporate Honors",
+      "badge": "AWARD 2023",
+      "period": "2023",
+      "location": "Dhaka, Bangladesh",
+      "tags": [
+        "Managing Director & CEO",
+        "Boardroom Honors",
+        "Business Contribution",
+        "Leadership"
+      ],
+      "shortDescription": "Conferred the prestigious Business Contribution Award for 2023 by Managing Director & CEO Farzanah Chowdhury and the Green Delta Insurance Board of Directors.",
+      "fullDescription": [
+        "Formally recognized in the executive boardroom by Green Delta Insurance PLC top leadership, including the Managing Director & CEO and senior board members.",
+        "Awarded for outstanding business contribution, commercial property underwriting execution, and enterprise portfolio growth during the fiscal year 2023.",
+        "Presented with the official corporate trophy and commendation in the presence of senior executive directors."
+      ],
+      "responsibilities": [
+        "Delivering landmark revenue generation and corporate client retention across non-life segments",
+        "Underwriting commercial risks with rigorous governance and high profitability",
+        "Collaborating with C-suite leadership to align regional branch distribution with corporate goals"
+      ],
+      "imageUrl": "/images/green-delta-business-contribution-2023-award.jpeg"
+    },
+    {
+      "id": "proj-5",
+      "title": "Annual Business Conference 2024 Business Contribution Award",
+      "subtitle": "Millionaire Club & Enterprise Recognition · Green Delta Insurance",
+      "category": "Corporate Honors",
+      "badge": "AWARD",
+      "period": "2024",
+      "location": "Dhaka, Bangladesh",
+      "tags": [
+        "Millionaire Club",
+        "Revenue Leadership",
+        "Annual Conference",
+        "Recognition"
+      ],
+      "shortDescription": "Awarded for exceptional business contribution and surpassing corporate targets at the Green Delta Insurance Annual Business Conference 2024.",
+      "fullDescription": [
+        "Recognized on stage by senior executive leadership at the Annual Business Conference 2024 under the prestigious 'BACK ON TRACK / MILLIONAIRE CLUB'.",
+        "Celebrated for outstanding revenue contribution, high-value corporate client acquisition, and cross-selling excellence.",
+        "Featured on the main conference keynote projection and honored by board members and management."
+      ],
+      "responsibilities": [
+        "Consistently exceeding annual business targets and premium revenue quotas",
+        "Expanding high-volume corporate property and marine cargo portfolios",
+        "Fostering cross-departmental sales synergies and branch revenue acceleration"
+      ],
+      "imageUrl": "/images/annual-business-conference-2024-award.jpeg"
+    },
+    {
+      "id": "proj-7",
+      "title": "Green Delta & IDLC Finance Institutional Partnership Agreement",
+      "subtitle": "Consumer Division Strategic Partnership Signing",
+      "category": "Strategic Partnership",
+      "badge": "IDLC PARTNERSHIP",
+      "period": "2024",
+      "location": "Dhaka, Bangladesh",
+      "tags": [
+        "IDLC Finance",
+        "Farzanah Chowdhury",
+        "Institutional Growth",
+        "Consumer Division"
+      ],
+      "shortDescription": "Key signing ceremony with IDLC Finance PLC Consumer Division leadership and Managing Director & CEO Farzanah Chowdhury.",
+      "fullDescription": [
+        "Facilitated and participated in the high-stakes institutional partnership agreement signing between Green Delta Insurance PLC and the Consumer Division of IDLC Finance PLC.",
+        "Collaborated with C-suite and division heads to expand non-life insurance cross-distribution across retail and commercial financing segments."
+      ],
+      "responsibilities": [
+        "Structuring commercial insurance underwriting protocols for consumer financing portfolios",
+        "Facilitating bilateral corporate alignment between Green Delta executive management and IDLC leadership",
+        "Driving high-margin revenue acceleration through institutional channel distribution"
+      ],
+      "imageUrl": "/images/idlc-finance-agreement-signing-green-delta.jpeg"
+    },
+    {
       "id": "proj-1",
       "title": "20-Branch Operational Restructuring & Governance",
       "subtitle": "Green Delta Insurance Metropolitan & Mufassil Network",
@@ -739,86 +819,6 @@
         "Coordinating with treaty reinsurers on capacity limits and excess-of-loss transit thresholds"
       ],
       "imageUrl": "/images/crdf-global-maritime-security-sanctions-conference.jpeg"
-    },
-    {
-      "id": "proj-5",
-      "title": "Annual Business Conference 2024 Business Contribution Award",
-      "subtitle": "Millionaire Club & Enterprise Recognition · Green Delta Insurance",
-      "category": "Corporate Honors",
-      "badge": "AWARD",
-      "period": "2024",
-      "location": "Dhaka, Bangladesh",
-      "tags": [
-        "Millionaire Club",
-        "Revenue Leadership",
-        "Annual Conference",
-        "Recognition"
-      ],
-      "shortDescription": "Awarded for exceptional business contribution and surpassing corporate targets at the Green Delta Insurance Annual Business Conference 2024.",
-      "fullDescription": [
-        "Recognized on stage by senior executive leadership at the Annual Business Conference 2024 under the prestigious 'BACK ON TRACK / MILLIONAIRE CLUB'.",
-        "Celebrated for outstanding revenue contribution, high-value corporate client acquisition, and cross-selling excellence.",
-        "Featured on the main conference keynote projection and honored by board members and management."
-      ],
-      "responsibilities": [
-        "Consistently exceeding annual business targets and premium revenue quotas",
-        "Expanding high-volume corporate property and marine cargo portfolios",
-        "Fostering cross-departmental sales synergies and branch revenue acceleration"
-      ],
-      "imageUrl": "/images/annual-business-conference-2024-award.jpeg"
-    },
-    {
-      "id": "proj-6",
-      "title": "Business Contribution Award 2023",
-      "subtitle": "Board of Directors & Executive Recognition · Green Delta Insurance",
-      "category": "Corporate Honors",
-      "badge": "AWARD 2023",
-      "period": "2023",
-      "location": "Dhaka, Bangladesh",
-      "tags": [
-        "Managing Director & CEO",
-        "Boardroom Honors",
-        "Business Contribution",
-        "Leadership"
-      ],
-      "shortDescription": "Conferred the prestigious Business Contribution Award for 2023 by Managing Director & CEO Farzanah Chowdhury and the Green Delta Insurance Board of Directors.",
-      "fullDescription": [
-        "Formally recognized in the executive boardroom by Green Delta Insurance PLC top leadership, including the Managing Director & CEO and senior board members.",
-        "Awarded for outstanding business contribution, commercial property underwriting execution, and enterprise portfolio growth during the fiscal year 2023.",
-        "Presented with the official corporate trophy and commendation in the presence of senior executive directors."
-      ],
-      "responsibilities": [
-        "Delivering landmark revenue generation and corporate client retention across non-life segments",
-        "Underwriting commercial risks with rigorous governance and high profitability",
-        "Collaborating with C-suite leadership to align regional branch distribution with corporate goals"
-      ],
-      "imageUrl": "/images/green-delta-business-contribution-2023-award.jpeg"
-    },
-    {
-      "id": "proj-7",
-      "title": "Green Delta & IDLC Finance Institutional Partnership Agreement",
-      "subtitle": "Consumer Division Strategic Partnership Signing",
-      "category": "Strategic Partnership",
-      "badge": "IDLC PARTNERSHIP",
-      "period": "2024",
-      "location": "Dhaka, Bangladesh",
-      "tags": [
-        "IDLC Finance",
-        "Farzanah Chowdhury",
-        "Institutional Growth",
-        "Consumer Division"
-      ],
-      "shortDescription": "Key signing ceremony with IDLC Finance PLC Consumer Division leadership and Managing Director & CEO Farzanah Chowdhury.",
-      "fullDescription": [
-        "Facilitated and participated in the high-stakes institutional partnership agreement signing between Green Delta Insurance PLC and the Consumer Division of IDLC Finance PLC.",
-        "Collaborated with C-suite and division heads to expand non-life insurance cross-distribution across retail and commercial financing segments."
-      ],
-      "responsibilities": [
-        "Structuring commercial insurance underwriting protocols for consumer financing portfolios",
-        "Facilitating bilateral corporate alignment between Green Delta executive management and IDLC leadership",
-        "Driving high-margin revenue acceleration through institutional channel distribution"
-      ],
-      "imageUrl": "/images/idlc-finance-agreement-signing-green-delta.jpeg"
     },
     {
       "id": "proj-8",

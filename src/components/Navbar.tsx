@@ -12,47 +12,98 @@ interface NavbarProps {
 export default function Navbar({ onOpenContact }: NavbarProps) {
   const { data } = usePortfolio();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("work");
+  const [activeSection, setActiveSection] = useState("");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
+  const navLinks = [
+    { label: "About", href: "#about", id: "about" },
+    { label: "Experience", href: "#experience", id: "experience" },
+    { label: "Work", href: "#work", id: "work" },
+    { label: "Skills", href: "#skills", id: "skills" },
+    { label: "Testimonials", href: "#testimonials", id: "testimonials" },
+  ];
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string,
+    href: string
+  ) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(id);
+      if (typeof window !== "undefined") {
+        window.history.pushState(null, "", href);
+      }
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
+      const scrollY = window.scrollY;
+
       // Background blur trigger
-      setIsScrolled(window.scrollY > 40);
+      setIsScrolled(scrollY > 40);
 
       // Scroll progress
       const totalHeight =
         document.documentElement.scrollHeight - window.innerHeight;
       if (totalHeight > 0) {
-        setScrollProgress((window.scrollY / totalHeight) * 100);
+        setScrollProgress((scrollY / totalHeight) * 100);
       }
 
-      // Active section spy
-      const sections = ["work", "about", "skills", "experience", "testimonials"];
-      for (const sectionId of sections) {
+      // If at very top (Hero section), clear active indicator
+      if (scrollY < 180) {
+        setActiveSection("");
+        return;
+      }
+
+      // If at bottom of page, activate last section
+      if (
+        window.innerHeight + scrollY >=
+        document.documentElement.scrollHeight - 60
+      ) {
+        setActiveSection("testimonials");
+        return;
+      }
+
+      // Active section spy in serial order from top to bottom
+      const orderedSectionIds = [
+        "about",
+        "experience",
+        "work",
+        "skills",
+        "testimonials",
+      ];
+
+      const offset = 140;
+      let currentSection = "";
+
+      for (const sectionId of orderedSectionIds) {
         const el = document.getElementById(sectionId);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= 200 && rect.bottom >= 200) {
-            setActiveSection(sectionId);
-            break;
+          if (rect.top <= offset) {
+            currentSection = sectionId;
           }
         }
+      }
+
+      if (currentSection) {
+        setActiveSection(currentSection);
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    const rafId = requestAnimationFrame(handleScroll);
 
-  const navLinks = [
-    { label: "Work", href: "#work", id: "work" },
-    { label: "About", href: "#about", id: "about" },
-    { label: "Skills", href: "#skills", id: "skills" },
-    { label: "Experience", href: "#experience", id: "experience" },
-    { label: "Testimonials", href: "#testimonials", id: "testimonials" },
-  ];
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
 
   return (
     <>
@@ -73,7 +124,15 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
           {/* Brand Logo - AZMAIN ADIL (Bold Wordmark) */}
           <Link
             href="#"
-            className="group focus:outline-none inline-flex items-center py-1"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              setActiveSection("");
+              if (typeof window !== "undefined") {
+                window.history.pushState(null, "", "/");
+              }
+            }}
+            className="group focus:outline-none inline-flex items-center py-1 cursor-pointer"
           >
             <span className="font-black text-xl sm:text-2xl tracking-wider text-white uppercase transition-all duration-300 group-hover:text-[#E50914] group-hover:drop-shadow-[0_0_16px_rgba(229,9,20,0.6)]">
               {data.profile.name}
@@ -88,7 +147,8 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
                 <a
                   key={link.id}
                   href={link.href}
-                  className={`text-sm font-medium tracking-wide transition-all relative py-1 ${
+                  onClick={(e) => handleNavClick(e, link.id, link.href)}
+                  className={`text-sm font-medium tracking-wide transition-all relative py-1 cursor-pointer ${
                     isActive
                       ? "text-white font-semibold"
                       : "text-zinc-300 hover:text-white"
@@ -145,8 +205,11 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
               <a
                 key={link.id}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                onClick={(e) => {
+                  handleNavClick(e, link.id, link.href);
+                  setMobileMenuOpen(false);
+                }}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors cursor-pointer ${
                   activeSection === link.id
                     ? "text-white bg-white/10 font-bold border-l-4 border-[#E50914]"
                     : "text-zinc-300 hover:text-white hover:bg-white/5"

@@ -26,7 +26,7 @@ export default function SkillsSection() {
   };
 
   return (
-    <section id="skills" className="py-16 bg-[#0e0e0e] border-t border-b border-white/5">
+    <section id="skills" className="py-16 bg-[#0e0e0e] border-t border-b border-white/5 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="space-y-1.5 mb-10">
