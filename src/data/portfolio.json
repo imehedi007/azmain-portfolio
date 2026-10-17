@@ -416,6 +416,66 @@
   ],
   "certifications": [
     {
+      "id": "cert-10",
+      "title": "Refresher Course on Non-Life Insurance",
+      "issuer": "Birla Institute of Management Technology (BIMTECH)",
+      "badge": "AACSB ACCREDITED",
+      "issueDate": "Executive Development",
+      "tags": [
+        "BIMTECH",
+        "Non-Life Insurance",
+        "Executive Refresher",
+        "India"
+      ],
+      "description": "Completed intensive AACSB-accredited executive refresher program on non-life insurance underwriting, digital transformation, and global risk management at BIMTECH, Greater Noida, India.",
+      "imageUrl": "/images/bimtech-certificate-valedictory.jpeg"
+    },
+    {
+      "id": "cert-9",
+      "title": "Excellence in Insurance Selling",
+      "issuer": "Green Delta Insurance PLC",
+      "badge": "HONORS",
+      "issueDate": "Performance Honors",
+      "tags": [
+        "Green Delta",
+        "Sales Excellence",
+        "Training Honors",
+        "Underwriting"
+      ],
+      "description": "Awarded Certificate of Training for Excellence in Insurance Selling at Green Delta Insurance PLC, demonstrating mastery in enterprise client acquisition and insurance portfolio growth.",
+      "imageUrl": "/images/excellence-insurance-selling.jpeg"
+    },
+    {
+      "id": "cert-11",
+      "title": "Bangladesh Maritime Security & Sanctions Enforcement",
+      "issuer": "CRDF Global",
+      "badge": "MARITIME SECURITY",
+      "issueDate": "Executive Credential",
+      "tags": [
+        "CRDF Global",
+        "Maritime Security",
+        "Sanctions Enforcement",
+        "Marine Risk"
+      ],
+      "description": "Conferred certificate upon completion of the high-level executive course on Bangladesh Maritime Security & Sanctions Enforcement arranged by CRDF Global with international delegates and risk specialists.",
+      "imageUrl": "/images/crdf-global-maritime-security-sanctions-conference.jpeg"
+    },
+    {
+      "id": "cert-5",
+      "title": "Effective Communication and Business Ethics",
+      "issuer": "Bangladesh Skill Bank",
+      "badge": "ETHICS & LEADERSHIP",
+      "issueDate": "Executive Credential",
+      "tags": [
+        "Skill Bank",
+        "Business Ethics",
+        "Executive Communication",
+        "Negotiation"
+      ],
+      "description": "Completed intensive executive training and certified in high-stakes corporate communication, professional business ethics, diplomatic negotiation, and cross-functional leadership alignment arranged by Bangladesh Skill Bank.",
+      "imageUrl": "/images/bangladesh-skill-bank-communication-ethics-certificate.jpeg"
+    },
+    {
       "id": "cert-1",
       "title": "Fundamentals of Credit",
       "issuer": "Corporate Finance Institute (CFI)",
@@ -499,66 +559,6 @@
       ],
       "description": "Certified in public speaking fundamentals, keynote presentation, executive presence, and persuasive rhetoric developed by Robi 10 Minute School and offered through MuktoPaath under the Access to Information (a2i) Programme, ICT Division.",
       "imageUrl": "/images/cert_public_speaking.jpg"
-    },
-    {
-      "id": "cert-11",
-      "title": "Bangladesh Maritime Security & Sanctions Enforcement",
-      "issuer": "CRDF Global",
-      "badge": "MARITIME SECURITY",
-      "issueDate": "Executive Credential",
-      "tags": [
-        "CRDF Global",
-        "Maritime Security",
-        "Sanctions Enforcement",
-        "Marine Risk"
-      ],
-      "description": "Conferred certificate upon completion of the high-level executive course on Bangladesh Maritime Security & Sanctions Enforcement arranged by CRDF Global with international delegates and risk specialists.",
-      "imageUrl": "/images/crdf-global-maritime-security-sanctions-conference.jpeg"
-    },
-    {
-      "id": "cert-5",
-      "title": "Effective Communication and Business Ethics",
-      "issuer": "Bangladesh Skill Bank",
-      "badge": "ETHICS & LEADERSHIP",
-      "issueDate": "Executive Credential",
-      "tags": [
-        "Skill Bank",
-        "Business Ethics",
-        "Executive Communication",
-        "Negotiation"
-      ],
-      "description": "Completed intensive executive training and certified in high-stakes corporate communication, professional business ethics, diplomatic negotiation, and cross-functional leadership alignment arranged by Bangladesh Skill Bank.",
-      "imageUrl": "/images/bangladesh-skill-bank-communication-ethics-certificate.jpeg"
-    },
-    {
-      "id": "cert-10",
-      "title": "Refresher Course on Non-Life Insurance",
-      "issuer": "Birla Institute of Management Technology (BIMTECH)",
-      "badge": "AACSB ACCREDITED",
-      "issueDate": "Executive Development",
-      "tags": [
-        "BIMTECH",
-        "Non-Life Insurance",
-        "Executive Refresher",
-        "India"
-      ],
-      "description": "Completed intensive AACSB-accredited executive refresher program on non-life insurance underwriting, digital transformation, and global risk management at BIMTECH, Greater Noida, India.",
-      "imageUrl": "/images/bimtech-certificate-valedictory.jpeg"
-    },
-    {
-      "id": "cert-9",
-      "title": "Excellence in Insurance Selling",
-      "issuer": "Green Delta Insurance PLC",
-      "badge": "HONORS",
-      "issueDate": "Performance Honors",
-      "tags": [
-        "Green Delta",
-        "Sales Excellence",
-        "Training Honors",
-        "Underwriting"
-      ],
-      "description": "Awarded Certificate of Training for Excellence in Insurance Selling at Green Delta Insurance PLC, demonstrating mastery in enterprise client acquisition and insurance portfolio growth.",
-      "imageUrl": "/images/excellence-insurance-selling.jpeg"
     },
     {
       "id": "award-2024",
