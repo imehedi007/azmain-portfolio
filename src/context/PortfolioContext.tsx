@@ -60,6 +60,31 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
                 return edu;
               });
             }
+
+            // Migrate proj-2 and proj-3 from featured to upcomingProjects if previously cached in localStorage
+            const movedIds = ["proj-2", "proj-3"];
+            if (Array.isArray(parsed.featuredProjects)) {
+              parsed.featuredProjects = parsed.featuredProjects.filter(
+                (p: ProjectItem) => !movedIds.includes(p.id)
+              );
+              const defaultFeatured = (defaultData as unknown as PortfolioData).featuredProjects || [];
+              for (const df of defaultFeatured) {
+                if (!parsed.featuredProjects.some((p: ProjectItem) => p.id === df.id)) {
+                  const idx = defaultFeatured.findIndex((p: ProjectItem) => p.id === df.id);
+                  parsed.featuredProjects.splice(idx, 0, df);
+                }
+              }
+            }
+
+            if (Array.isArray(parsed.upcomingProjects)) {
+              const defaultUpcoming = (defaultData as unknown as PortfolioData).upcomingProjects || [];
+              for (const du of defaultUpcoming) {
+                if (!parsed.upcomingProjects.some((p: ProjectItem) => p.id === du.id)) {
+                  const idx = defaultUpcoming.findIndex((p: ProjectItem) => p.id === du.id);
+                  parsed.upcomingProjects.splice(idx, 0, du);
+                }
+              }
+            }
             return parsed;
           }
         }

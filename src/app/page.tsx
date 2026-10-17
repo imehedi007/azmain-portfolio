@@ -170,7 +170,6 @@ export default function HomePage() {
       <RowCarousel
         id="experience"
         title="Work Experience"
-        subtitle="High-impact work selected from across disciplines"
         items={experienceCardItems}
         onCardClick={(item) => setSelectedCard(item)}
       />
@@ -179,7 +178,6 @@ export default function HomePage() {
       <RowCarousel
         id="education"
         title="Education"
-        subtitle="Scalable platforms and polished web experiences"
         items={educationCardItems}
         onCardClick={(item) => setSelectedCard(item)}
       />
@@ -188,25 +186,22 @@ export default function HomePage() {
       <RowCarousel
         id="certifications"
         title="Awards & Certifications"
-        subtitle="Human-centered systems with a distinctive visual point of view"
         items={certificationCardItems}
         onCardClick={(item) => setSelectedCard(item)}
       />
 
-      {/* Row 4: Feature Projects */}
+      {/* Row 4: Career Highlights */}
       <RowCarousel
         id="work"
-        title="Feature Projects"
-        subtitle="Useful products designed for life in motion"
+        title="Career Highlights"
         items={featuredProjectCardItems}
         onCardClick={(item) => setSelectedCard(item)}
       />
 
-      {/* Row 5: Upcoming Projects */}
+      {/* Row 5: Extra Curricular */}
       <RowCarousel
-        id="upcoming"
-        title="Upcoming Projects"
-        subtitle="Social leadership, philanthropic initiatives, and emerging InsurTech frontiers"
+        id="extracurricular"
+        title="Extra Curricular"
         items={upcomingProjectCardItems}
         onCardClick={(item) => setSelectedCard(item)}
       />

@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 interface RowCarouselProps {
   id?: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   items: CardItem[];
   onCardClick: (item: CardItem) => void;
   aspectRatio?: "3/4" | "standard";
@@ -45,9 +45,11 @@ export default function RowCarousel({
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
               {title}
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-400 font-normal">
-              {subtitle}
-            </p>
+            {subtitle && (
+              <p className="text-xs sm:text-sm text-zinc-400 font-normal">
+                {subtitle}
+              </p>
+            )}
           </div>
 
           {/* Carousel Arrows (< >) */}

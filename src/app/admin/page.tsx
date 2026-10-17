@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState, useRef, useSyncExternalStore } from "react";
+import React, { useState, useRef, useSyncExternalStore, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { usePortfolio } from "@/context/PortfolioContext";
+import { PortfolioData } from "@/types/portfolio";
 import ProfileTab from "@/components/admin/ProfileTab";
 import ExperienceTab from "@/components/admin/ExperienceTab";
 import EducationTab from "@/components/admin/EducationTab";
@@ -30,6 +31,9 @@ import {
   CheckCircle,
   Lock,
   KeyRound,
+  Check,
+  UploadCloud,
+  Loader2,
 } from "lucide-react";
 
 const emptySubscribe = () => () => {};
@@ -55,20 +59,16 @@ export default function AdminPage() {
   const {
     data,
     updateData,
-    updateProfile,
-    updateExperience,
-    updateEducation,
-    updateCertifications,
-    updateFeaturedProjects,
-    updateUpcomingProjects,
-    updateSkills,
-    updateBrands,
-    updateReferences,
     resetToDefault,
-    exportJSON,
-    importJSON,
     isCustomized,
   } = usePortfolio();
+
+  // Local draft data so typing/editing does not trigger file saves or fast refresh on every keystroke
+  const [draftData, setDraftData] = useState<PortfolioData | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
+
+  // Active working data: uses draftData if modifications were made, otherwise falls back to data
+  const currentData = draftData ?? data;
 
   const [activeTab, setActiveTab] = useState<
     | "profile"
@@ -89,6 +89,29 @@ export default function AdminPage() {
   const isMounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
   const isAuthenticated = useSyncExternalStore(subscribeSession, getSessionSnapshot, getServerSnapshot);
 
+  // Check if there are unsaved modifications compared to published context data
+  const isDirty = useMemo(() => {
+    if (!draftData) return false;
+    return JSON.stringify(draftData) !== JSON.stringify(data);
+  }, [draftData, data]);
+
+  // Prevent accidental navigation if there are unsaved changes
+  useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (isDirty) {
+        e.preventDefault();
+        e.returnValue = "";
+      }
+    };
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [isDirty]);
+
+  const showToast = (msg: string) => {
+    setNotification(msg);
+    setTimeout(() => setNotification(null), 3000);
+  };
+
   const handleLock = () => {
     if (typeof window !== "undefined") {
       sessionStorage.removeItem("azmain_admin_session_auth");
@@ -97,9 +120,32 @@ export default function AdminPage() {
     showToast("Profile locked. Enter PIN to re-enter.");
   };
 
-  const showToast = (msg: string) => {
-    setNotification(msg);
-    setTimeout(() => setNotification(null), 3000);
+  // Save & Publish Action: commits current working changes to localStorage and writes to portfolio.json via API
+  const handleSaveAndPublish = async () => {
+    if (!isDirty || isSaving) return;
+    setIsSaving(true);
+    try {
+      const success = await updateData(currentData);
+      if (success) {
+        setDraftData(null);
+        showToast("All changes saved & published successfully!");
+      } else {
+        showToast("Changes saved locally.");
+      }
+    } catch (err) {
+      console.error("Save & publish error:", err);
+      showToast("Error saving changes. Please try again.");
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  // Discard all working edits and revert back to published state
+  const handleDiscardChanges = () => {
+    if (confirm("Discard all unsaved edits and restore the published version?")) {
+      setDraftData(null);
+      showToast("Unsaved changes discarded.");
+    }
   };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -109,16 +155,32 @@ export default function AdminPage() {
     reader.onload = (event) => {
       const content = event.target?.result as string;
       if (content) {
-        const success = importJSON(content);
-        if (success) {
-          showToast("Portfolio data imported successfully!");
-        } else {
+        try {
+          const parsed = JSON.parse(content) as PortfolioData;
+          if (parsed && parsed.profile && parsed.experience) {
+            setDraftData(parsed);
+            showToast("JSON imported into draft. Click 'Save & Publish' when ready!");
+          } else {
+            alert("Invalid schema: portfolio must include 'profile' and 'experience' sections.");
+          }
+        } catch {
           alert("Failed to parse JSON file. Please ensure it adheres to the portfolio schema.");
         }
       }
     };
     reader.readAsText(file);
     e.target.value = "";
+  };
+
+  const handleExportJSON = () => {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(currentData, null, 2));
+    const downloadAnchor = document.createElement("a");
+    downloadAnchor.setAttribute("href", dataStr);
+    downloadAnchor.setAttribute("download", `azmain_portfolio_${new Date().toISOString().slice(0, 10)}.json`);
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    downloadAnchor.remove();
+    showToast("Exported portfolio.json successfully.");
   };
 
   const handleReset = () => {
@@ -128,6 +190,7 @@ export default function AdminPage() {
       )
     ) {
       resetToDefault();
+      setDraftData(null);
       showToast("Reset to authentic CV data.");
     }
   };
@@ -159,8 +222,8 @@ export default function AdminPage() {
         onUnlock={() => {
           showToast("Profile unlocked. Welcome to CMS Dashboard.");
         }}
-        avatarUrl={data.profile.avatarUrl}
-        profileName={data.profile.name}
+        avatarUrl={currentData.profile.avatarUrl}
+        profileName={currentData.profile.name}
       />
     );
   }
@@ -194,11 +257,16 @@ export default function AdminPage() {
               <span className="text-[10px] bg-red-950 text-[#E50914] font-bold px-2 py-0.5 rounded border border-red-800/40">
                 ADMIN
               </span>
-              {isCustomized && (
+              {isDirty ? (
+                <span className="text-[10px] bg-amber-950 text-amber-300 font-bold px-2 py-0.5 rounded border border-amber-600/40 flex items-center gap-1 animate-pulse">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                  Unsaved Changes
+                </span>
+              ) : isCustomized ? (
                 <span className="text-[10px] bg-emerald-950 text-emerald-400 font-semibold px-2 py-0.5 rounded border border-emerald-800/40">
                   Custom Edits Active
                 </span>
-              )}
+              ) : null}
             </div>
             <p className="text-[11px] text-zinc-400">
               Manage portfolio records, reorder items, validate JSON, and preview changes
@@ -208,6 +276,46 @@ export default function AdminPage() {
 
         {/* Global CMS Actions */}
         <div className="flex flex-wrap items-center gap-2">
+          {/* PRIMARY: Save & Publish Button (disabled while unchanged) */}
+          <button
+            onClick={handleSaveAndPublish}
+            disabled={!isDirty || isSaving}
+            className={`text-xs px-3.5 py-1.5 rounded-md font-bold flex items-center gap-1.5 transition-all shadow-md cursor-pointer ${
+              isDirty
+                ? "bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-700/40 hover:scale-105 active:scale-95 ring-2 ring-emerald-400/50"
+                : "bg-zinc-800 text-zinc-500 border border-white/5 cursor-not-allowed opacity-60"
+            }`}
+            title={isDirty ? "Save & Publish all unsaved changes to live site" : "No unsaved changes"}
+          >
+            {isSaving ? (
+              <>
+                <Loader2 className="w-3.5 h-3.5 animate-spin text-white" />
+                <span>Publishing...</span>
+              </>
+            ) : isDirty ? (
+              <>
+                <UploadCloud className="w-3.5 h-3.5 text-white" />
+                <span>Save &amp; Publish</span>
+              </>
+            ) : (
+              <>
+                <Check className="w-3.5 h-3.5 text-emerald-400" />
+                <span>All Changes Saved</span>
+              </>
+            )}
+          </button>
+
+          {/* Discard Changes Button (only when dirty) */}
+          {isDirty && (
+            <button
+              onClick={handleDiscardChanges}
+              className="text-xs bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-white px-2.5 py-1.5 rounded-md font-medium border border-white/10 transition-colors cursor-pointer"
+              title="Discard all unsaved edits"
+            >
+              Discard
+            </button>
+          )}
+
           {/* Live Preview Toggle */}
           <button
             onClick={() => setShowLivePreview(!showLivePreview)}
@@ -223,10 +331,7 @@ export default function AdminPage() {
 
           {/* Export JSON */}
           <button
-            onClick={() => {
-              exportJSON();
-              showToast("Exported portfolio.json successfully.");
-            }}
+            onClick={handleExportJSON}
             className="text-xs bg-zinc-800 hover:bg-zinc-700 text-zinc-200 px-3 py-1.5 rounded-md font-semibold flex items-center gap-1.5 border border-white/10 transition-colors cursor-pointer"
             title="Download portfolio.json to commit to Git repository"
           >
@@ -322,106 +427,128 @@ export default function AdminPage() {
             })}
           </div>
 
-          {/* Tab Content Panel */}
+          {/* Tab Content Panel - edits mutate draftData without reloading */}
           <div className="p-4 sm:p-8 flex-1">
             {activeTab === "profile" && (
               <ProfileTab
-                profile={data.profile}
+                profile={currentData.profile}
                 onChange={(p) => {
-                  updateProfile(p);
-                  showToast("Profile details updated.");
+                  setDraftData((prev) => ({
+                    ...(prev ?? data),
+                    profile: { ...(prev ?? data).profile, ...p },
+                  }));
                 }}
               />
             )}
 
             {activeTab === "experience" && (
               <ExperienceTab
-                experience={data.experience}
+                experience={currentData.experience}
                 onChange={(exp) => {
-                  updateExperience(exp);
-                  showToast("Experience records updated.");
+                  setDraftData((prev) => ({
+                    ...(prev ?? data),
+                    experience: exp,
+                  }));
                 }}
               />
             )}
 
             {activeTab === "education" && (
               <EducationTab
-                education={data.education}
+                education={currentData.education}
                 onChange={(edu) => {
-                  updateEducation(edu);
-                  showToast("Academic records updated.");
+                  setDraftData((prev) => ({
+                    ...(prev ?? data),
+                    education: edu,
+                  }));
                 }}
               />
             )}
 
             {activeTab === "certifications" && (
               <CertificationsTab
-                certifications={data.certifications}
+                certifications={currentData.certifications}
                 onChange={(certs) => {
-                  updateCertifications(certs);
-                  showToast("Certifications updated.");
+                  setDraftData((prev) => ({
+                    ...(prev ?? data),
+                    certifications: certs,
+                  }));
                 }}
               />
             )}
 
             {activeTab === "projects" && (
               <ProjectsTab
-                featuredProjects={data.featuredProjects}
-                upcomingProjects={data.upcomingProjects}
+                featuredProjects={currentData.featuredProjects}
+                upcomingProjects={currentData.upcomingProjects}
                 onChangeFeatured={(proj) => {
-                  updateFeaturedProjects(proj);
-                  showToast("Featured projects updated.");
+                  setDraftData((prev) => ({
+                    ...(prev ?? data),
+                    featuredProjects: proj,
+                  }));
                 }}
                 onChangeUpcoming={(proj) => {
-                  updateUpcomingProjects(proj);
-                  showToast("Upcoming projects updated.");
+                  setDraftData((prev) => ({
+                    ...(prev ?? data),
+                    upcomingProjects: proj,
+                  }));
                 }}
               />
             )}
 
             {activeTab === "skills" && (
               <SkillsTab
-                skills={data.skills}
-                languages={data.languages}
-                hobbies={data.hobbies}
-                brands={data.brands}
+                skills={currentData.skills}
+                languages={currentData.languages}
+                hobbies={currentData.hobbies}
+                brands={currentData.brands}
                 onChangeSkills={(s) => {
-                  updateSkills(s);
-                  showToast("Skill matrix updated.");
+                  setDraftData((prev) => ({
+                    ...(prev ?? data),
+                    skills: s,
+                  }));
                 }}
                 onChangeLanguages={(l) => {
-                  updateData({ ...data, languages: l });
-                  showToast("Languages updated.");
+                  setDraftData((prev) => ({
+                    ...(prev ?? data),
+                    languages: l,
+                  }));
                 }}
                 onChangeHobbies={(h) => {
-                  updateData({ ...data, hobbies: h });
-                  showToast("Hobbies updated.");
+                  setDraftData((prev) => ({
+                    ...(prev ?? data),
+                    hobbies: h,
+                  }));
                 }}
                 onChangeBrands={(b) => {
-                  updateBrands(b);
-                  showToast("Brands updated.");
+                  setDraftData((prev) => ({
+                    ...(prev ?? data),
+                    brands: b,
+                  }));
                 }}
               />
             )}
 
             {activeTab === "references" && (
               <ReferencesTab
-                references={data.references}
+                references={currentData.references}
                 onChange={(r) => {
-                  updateReferences(r);
-                  showToast("References updated.");
+                  setDraftData((prev) => ({
+                    ...(prev ?? data),
+                    references: r,
+                  }));
                 }}
               />
             )}
 
             {activeTab === "json" && (
               <JsonTab
-                data={data}
+                data={currentData}
                 onApply={(newData) => {
-                  updateData(newData);
-                  showToast("Direct JSON changes applied.");
+                  setDraftData(newData);
+                  showToast("JSON draft updated. Click 'Save & Publish' when ready!");
                 }}
-                onExport={exportJSON}
+                onExport={handleExportJSON}
               />
             )}
           </div>
@@ -433,7 +560,7 @@ export default function AdminPage() {
             <div className="p-3 bg-zinc-900 border-b border-white/10 flex items-center justify-between text-xs">
               <span className="text-zinc-300 font-semibold flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                Live In-App Preview (Instant Synchronized State)
+                Live In-App Preview
               </span>
               <button
                 onClick={() => setShowLivePreview(false)}
@@ -450,6 +577,36 @@ export default function AdminPage() {
           </div>
         )}
       </div>
+
+      {/* Floating Bottom Bar: Quick Save & Publish Notification when dirty */}
+      {isDirty && (
+        <div className="fixed bottom-6 right-6 z-50 bg-[#161616]/95 border border-amber-500/60 text-white text-xs px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 backdrop-blur-md animate-in slide-in-from-bottom-3">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse" />
+            <span className="font-semibold text-amber-200">Unsaved Changes Pending</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleDiscardChanges}
+              className="px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white transition-colors cursor-pointer"
+            >
+              Discard
+            </button>
+            <button
+              onClick={handleSaveAndPublish}
+              disabled={isSaving}
+              className="px-3.5 py-1.5 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-all shadow-md flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+            >
+              {isSaving ? (
+                <Loader2 className="w-3.5 h-3.5 animate-spin" />
+              ) : (
+                <UploadCloud className="w-3.5 h-3.5" />
+              )}
+              <span>{isSaving ? "Publishing..." : "Save & Publish"}</span>
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Change PIN Modal Dialog */}
       <ChangePinModal

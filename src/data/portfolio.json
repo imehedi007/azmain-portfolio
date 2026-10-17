@@ -217,7 +217,7 @@
       "company": "Green Delta Insurance PLC",
       "role": "Deputy Manager",
       "subRole": "Key Account Management & Strategic Partnerships",
-      "period": "02/2022 – 12/2024",
+      "period": "02/2023 – 12/2024",
       "location": "Dhaka, Bangladesh",
       "badge": "PROMOTED",
       "shortDescription": "Demonstrated expertise in building and maintaining strong client relationships, resulting in a consistently high client retention rate.",
@@ -692,6 +692,33 @@
       "imageUrl": "/images/annual-business-conference-2024-award.jpeg"
     },
     {
+      "id": "proj-8",
+      "title": "Best Performing Distribution Channel Award 2025",
+      "subtitle": "Distribution Network & Executive Honors · Green Delta Insurance",
+      "category": "Corporate Honors",
+      "badge": "AWARD 2025",
+      "period": "2025",
+      "location": "Dhaka, Bangladesh",
+      "tags": [
+        "Distribution Channel",
+        "Award 2025",
+        "Operational Excellence",
+        "Green Delta Insurance"
+      ],
+      "shortDescription": "Conferred the prestigious Best Performing Distribution Channel Award 2025 at Green Delta Insurance PLC for exemplary operational performance and market outreach.",
+      "fullDescription": [
+        "Recognized by executive leadership for directing and piloting the highest-performing distribution channel across Green Delta Insurance PLC's nationwide network.",
+        "Honored for surpassing corporate growth benchmarks, streamlining distribution workflows, and expanding policyholder acquisition across diverse market segments.",
+        "Celebrated alongside core team members and branch leadership at the corporate annual ceremony on the red carpet."
+      ],
+      "responsibilities": [
+        "Spearheading channel strategy, agent productivity, and institutional client servicing protocols",
+        "Expanding non-life insurance distribution reach across corporate and retail verticals",
+        "Driving multi-branch channel synergy and high-margin underwriting revenue growth"
+      ],
+      "imageUrl": "/images/Best Performing Distribution Channel Award 2025.jpeg"
+    },
+    {
       "id": "proj-7",
       "title": "Green Delta & IDLC Finance Institutional Partnership Agreement",
       "subtitle": "Consumer Division Strategic Partnership Signing",
@@ -742,56 +769,6 @@
         "Supervising remote branch leadership and establishing continuous accountability loops"
       ],
       "imageUrl": "/images/branches-distribution-gdi-highlights-2025.jpg"
-    },
-    {
-      "id": "proj-2",
-      "title": "Mind Smiths Academy",
-      "subtitle": "Managing Partner & Strategic Lead",
-      "category": "Academic Enterprise",
-      "badge": "VENTURE",
-      "period": "04/2023 – Present",
-      "tags": [
-        "Managing Partner",
-        "Curriculum Strategy",
-        "Academic Operations"
-      ],
-      "shortDescription": "Co-founded and managing high-caliber educational venture providing structured skill enhancement and professional coaching.",
-      "fullDescription": [
-        "Serving as Managing Partner, overseeing institutional strategy, fiscal planning, and mentor recruitment.",
-        "Designed comprehensive student learning trajectories bridging academic theory with real-world corporate competencies."
-      ],
-      "responsibilities": [
-        "Overseeing organizational fiscal strategy, budget allocation, and partner relations",
-        "Managing marketing and community outreach to prospective students",
-        "Leading faculty recruitment and instructional quality standards"
-      ],
-      "imageUrl": "/images/azmain-adil-3.jpeg"
-    },
-    {
-      "id": "proj-3",
-      "title": "Scholars University Admission Coaching",
-      "subtitle": "Branch Director & Senior Instructor",
-      "category": "Academic Leadership",
-      "badge": "LEADERSHIP",
-      "period": "01/2016 – 12/2023",
-      "location": "Dhaka, Bangladesh",
-      "tags": [
-        "Branch Director",
-        "Senior Instructor",
-        "Mentorship",
-        "Growth"
-      ],
-      "shortDescription": "Directed branch administrative operations and instructed hundreds of aspiring students, achieving stellar public university entrance placements.",
-      "fullDescription": [
-        "Directed branch-level operational administration, faculty scheduling, and admissions enrollment for 8 years.",
-        "Delivered lecture series on business administration, analytical reasoning, and examination strategies for University of Dhaka admission tests."
-      ],
-      "responsibilities": [
-        "Directing daily branch administrative workflows, student services, and facility operations",
-        "Mentoring high-potential cohorts and tailoring specialized mock-exam analytics",
-        "Driving student enrollment growth through high success rates and community trust"
-      ],
-      "imageUrl": "/images/du-career-talk-keynote-green-delta.jpeg"
     },
     {
       "id": "proj-4",
@@ -873,6 +850,56 @@
     }
   ],
   "upcomingProjects": [
+    {
+      "id": "proj-2",
+      "title": "Mind Smiths Academy",
+      "subtitle": "Managing Partner & Strategic Lead",
+      "category": "Academic Enterprise",
+      "badge": "VENTURE",
+      "period": "04/2023 – Present",
+      "tags": [
+        "Managing Partner",
+        "Curriculum Strategy",
+        "Academic Operations"
+      ],
+      "shortDescription": "Co-founded and managing high-caliber educational venture providing structured skill enhancement and professional coaching.",
+      "fullDescription": [
+        "Serving as Managing Partner, overseeing institutional strategy, fiscal planning, and mentor recruitment.",
+        "Designed comprehensive student learning trajectories bridging academic theory with real-world corporate competencies."
+      ],
+      "responsibilities": [
+        "Overseeing organizational fiscal strategy, budget allocation, and partner relations",
+        "Managing marketing and community outreach to prospective students",
+        "Leading faculty recruitment and instructional quality standards"
+      ],
+      "imageUrl": "/images/azmain-adil-3.jpeg"
+    },
+    {
+      "id": "proj-3",
+      "title": "Scholars University Admission Coaching",
+      "subtitle": "Branch Director & Senior Instructor",
+      "category": "Academic Leadership",
+      "badge": "LEADERSHIP",
+      "period": "01/2016 – 12/2023",
+      "location": "Dhaka, Bangladesh",
+      "tags": [
+        "Branch Director",
+        "Senior Instructor",
+        "Mentorship",
+        "Growth"
+      ],
+      "shortDescription": "Directed branch administrative operations and instructed hundreds of aspiring students, achieving stellar public university entrance placements.",
+      "fullDescription": [
+        "Directed branch-level operational administration, faculty scheduling, and admissions enrollment for 8 years.",
+        "Delivered lecture series on business administration, analytical reasoning, and examination strategies for University of Dhaka admission tests."
+      ],
+      "responsibilities": [
+        "Directing daily branch administrative workflows, student services, and facility operations",
+        "Mentoring high-potential cohorts and tailoring specialized mock-exam analytics",
+        "Driving student enrollment growth through high success rates and community trust"
+      ],
+      "imageUrl": "/images/du-career-talk-keynote-green-delta.jpeg"
+    },
     {
       "id": "up-1",
       "title": "Positive Youth Development Society of Bangladesh (PYDSB)",
