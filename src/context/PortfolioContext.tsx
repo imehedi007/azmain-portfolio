@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import defaultData from "@/data/portfolio.json";
 import {
   PortfolioData,
@@ -41,8 +41,14 @@ interface PortfolioContextType {
 const PortfolioContext = createContext<PortfolioContextType | undefined>(undefined);
 
 export function PortfolioProvider({ children }: { children: React.ReactNode }) {
-  const [data, setData] = useState<PortfolioData>(() => {
-    if (typeof window !== "undefined") {
+  // Always initialize with defaultData so Server HTML and Client Initial Hydration match 100% identically
+  const [data, setData] = useState<PortfolioData>(() => defaultData as unknown as PortfolioData);
+  const [isLoading] = useState(false);
+  const [isCustomized, setIsCustomized] = useState(false);
+
+  // Sync client-side localStorage asynchronously after hydration completes
+  useEffect(() => {
+    const syncFromStorage = () => {
       try {
         const stored = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
         if (stored) {
@@ -85,27 +91,29 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
                 }
               }
             }
-            return parsed;
+
+            setData(parsed);
+            setIsCustomized(true);
           }
         }
       } catch {
         // Fallback to default
       }
-    }
-    return defaultData as unknown as PortfolioData;
-  });
+    };
 
-  const [isLoading] = useState(false);
-  const [isCustomized, setIsCustomized] = useState<boolean>(() => {
-    if (typeof window !== "undefined") {
-      try {
-        return !!localStorage.getItem(STORAGE_KEY);
-      } catch {
-        return false;
-      }
-    }
-    return false;
-  });
+    window.addEventListener("portfolio-sync", syncFromStorage);
+    window.addEventListener("storage", syncFromStorage);
+
+    const timer = setTimeout(() => {
+      syncFromStorage();
+    }, 0);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("portfolio-sync", syncFromStorage);
+      window.removeEventListener("storage", syncFromStorage);
+    };
+  }, []);
 
   const saveToStorageAndState = async (newData: PortfolioData): Promise<boolean> => {
     try {

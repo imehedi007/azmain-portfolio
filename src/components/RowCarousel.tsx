@@ -78,7 +78,7 @@ export default function RowCarousel({
         >
           {items.map((item) => (
             <NetflixCard
-              key={item.id}
+              key={`${id || "row"}-${item.id}`}
               item={item}
               onClick={onCardClick}
               aspectRatio={aspectRatio}
