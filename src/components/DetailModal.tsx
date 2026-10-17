@@ -41,6 +41,14 @@ export default function DetailModal({
 
   if (!item) return null;
 
+  const isLogo = Boolean(
+    item.imageUrl &&
+      (item.imageUrl.toLowerCase().includes("logo") ||
+        item.imageUrl.toLowerCase().includes("ndc") ||
+        item.imageUrl.toLowerCase().includes("isc") ||
+        item.imageUrl.toLowerCase().includes("idc"))
+  );
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 md:p-8 overflow-y-auto bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
       {/* Background click to dismiss */}
@@ -58,28 +66,44 @@ export default function DetailModal({
         </button>
 
         {/* LEFT COLUMN: Authentic Full Image Showcase */}
-        <div className="relative w-full md:w-1/2 lg:w-5/12 bg-zinc-950 flex flex-col items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-white/10 shrink-0 h-56 sm:h-64 md:h-auto md:min-h-[520px]">
+        <div className="relative w-full md:w-1/2 lg:w-5/12 bg-zinc-950 flex flex-col items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-white/10 shrink-0 h-72 sm:h-80 md:h-[540px] md:min-h-[520px]">
           {/* Ambient blurred glow matching photo colors */}
           <Image
             src={item.imageUrl || "/images/card_insurance_ops.jpg"}
             alt=""
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover blur-3xl opacity-35 pointer-events-none scale-125"
             aria-hidden="true"
           />
 
           {/* Foreground Uncropped Image Container */}
-          <div className="relative w-full h-full p-3 sm:p-4 md:p-6 flex items-center justify-center z-10">
-            <div className="relative w-full h-full max-h-[200px] sm:max-h-[230px] md:max-h-[85vh]">
-              <Image
-                src={item.imageUrl || "/images/card_insurance_ops.jpg"}
-                alt={item.title}
-                fill
-                className="object-contain drop-shadow-2xl rounded-lg"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-              />
-            </div>
+          <div className="relative w-full h-full min-h-[240px] sm:min-h-[280px] p-4 sm:p-6 flex items-center justify-center z-10">
+            {isLogo ? (
+              <div className="relative w-full h-64 sm:h-72 md:h-80 max-w-sm rounded-3xl bg-white p-6 sm:p-8 shadow-2xl flex items-center justify-center border border-white/30">
+                <div className="relative w-full h-full">
+                  <Image
+                    src={item.imageUrl}
+                    alt={item.title}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 280px, 360px"
+                    priority
+                  />
+                </div>
+              </div>
+            ) : (
+              <div className="relative w-full h-64 sm:h-72 md:h-[450px]">
+                <Image
+                  src={item.imageUrl || "/images/card_insurance_ops.jpg"}
+                  alt={item.title}
+                  fill
+                  className="object-contain drop-shadow-2xl rounded-lg"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+            )}
           </div>
 
           {/* Bottom Left Image Overlay: Open Full Image / View Certificate link */}

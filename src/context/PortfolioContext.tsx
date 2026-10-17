@@ -15,7 +15,8 @@ import {
   KeyAchievement,
 } from "@/types/portfolio";
 
-const STORAGE_KEY = "azmain_portfolio_cms_data_v6";
+const STORAGE_KEY = "azmain_portfolio_cms_data_v7";
+const LEGACY_STORAGE_KEY = "azmain_portfolio_cms_data_v6";
 
 interface PortfolioContextType {
   data: PortfolioData;
@@ -43,10 +44,22 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
   const [data, setData] = useState<PortfolioData>(() => {
     if (typeof window !== "undefined") {
       try {
-        const stored = localStorage.getItem(STORAGE_KEY);
+        const stored = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
         if (stored) {
           const parsed = JSON.parse(stored);
           if (parsed && parsed.profile && parsed.experience) {
+            // Auto-heal education logo paths if pointing to old placeholder
+            if (Array.isArray(parsed.education)) {
+              parsed.education = parsed.education.map((edu: EducationItem) => {
+                if (edu.id === "edu-4" && (!edu.imageUrl || edu.imageUrl === "/images/card_academic_du.jpg")) {
+                  return { ...edu, imageUrl: "/images/ndc-logo.png" };
+                }
+                if (edu.id === "edu-5" && (!edu.imageUrl || edu.imageUrl === "/images/card_academic_du.jpg")) {
+                  return { ...edu, imageUrl: "/images/isc-logo.png" };
+                }
+                return edu;
+              });
+            }
             return parsed;
           }
         }

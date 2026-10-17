@@ -145,6 +145,7 @@ export default function VideoModal({ isOpen, onClose }: VideoModalProps) {
             src={current.image}
             alt={current.title}
             fill
+            sizes="(max-width: 1024px) 100vw, 896px"
             className="object-cover object-center brightness-75 transition-all duration-700"
           />
 

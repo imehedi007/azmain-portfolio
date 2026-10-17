@@ -42,6 +42,12 @@ export default function NetflixCard({
     item.imageUrl.includes("digital marketing") ||
     item.imageUrl.includes("CFI");
 
+  const isLogo =
+    item.imageUrl.toLowerCase().includes("logo") ||
+    item.imageUrl.toLowerCase().includes("ndc") ||
+    item.imageUrl.toLowerCase().includes("isc") ||
+    item.imageUrl.toLowerCase().includes("idc");
+
   return (
     <div
       onClick={() => onClick(item)}
@@ -53,8 +59,12 @@ export default function NetflixCard({
     >
       {/* Top Image Container - Supports 3:4 portrait or standard dynamic height */}
       <div
-        className={`relative w-full overflow-hidden bg-zinc-950 ${
-          isPortrait34 ? "aspect-[3/4]" : "h-64 sm:h-72 md:h-80"
+        className={`relative w-full overflow-hidden ${
+          isLogo ? "bg-white" : "bg-zinc-950"
+        } ${
+          isPortrait34
+            ? "aspect-[3/4] min-h-[340px]"
+            : "h-64 sm:h-72 md:h-80 min-h-[256px] sm:min-h-[288px] md:min-h-[320px]"
         }`}
       >
         <Image
@@ -66,21 +76,27 @@ export default function NetflixCard({
               ? "(max-width: 768px) 270px, 320px"
               : "(max-width: 768px) 300px, 370px"
           }
-          className={`object-cover ${
-            isCert
-              ? "object-center"
-              : isPortrait34
-              ? "object-[center_16%]"
-              : "object-[center_18%]"
-          } group-hover:scale-105 transition-transform duration-500 ease-out brightness-95 group-hover:brightness-105`}
+          className={`${
+            isLogo
+              ? "object-contain p-4 pb-5 sm:p-6 sm:pb-6"
+              : `object-cover ${
+                  isCert
+                    ? "object-center"
+                    : isPortrait34
+                    ? "object-[center_16%]"
+                    : "object-[center_18%]"
+                } brightness-95 group-hover:brightness-105`
+          } group-hover:scale-105 transition-transform duration-500 ease-out`}
         />
 
-        {/* Subtle bottom fade to gently transition image into card body */}
-        <div
-          className={`absolute bottom-0 inset-x-0 ${
-            isCert ? "h-10" : "h-16"
-          } bg-gradient-to-t from-[#141414] to-transparent pointer-events-none`}
-        />
+        {/* Subtle bottom fade to gently transition photo/certificate image into card body */}
+        {!isLogo && (
+          <div
+            className={`absolute bottom-0 inset-x-0 ${
+              isCert ? "h-10" : "h-16"
+            } bg-gradient-to-t from-[#141414] to-transparent pointer-events-none`}
+          />
+        )}
 
         {/* Refined Frosted Glass Category Badge */}
         {item.badge && (
