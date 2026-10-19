@@ -46,7 +46,27 @@ export default function DetailModal({
       (item.imageUrl.toLowerCase().includes("logo") ||
         item.imageUrl.toLowerCase().includes("ndc") ||
         item.imageUrl.toLowerCase().includes("isc") ||
-        item.imageUrl.toLowerCase().includes("idc"))
+        item.imageUrl.toLowerCase().includes("idc") ||
+        item.imageUrl.toLowerCase().includes("metlife") ||
+        item.imageUrl.toLowerCase().includes("exim") ||
+        item.imageUrl.toLowerCase().includes("mind-smith") ||
+        item.imageUrl.toLowerCase().includes("mindsmith") ||
+        item.imageUrl.toLowerCase().includes("scholar") ||
+        item.imageUrl.toLowerCase().includes("abp"))
+  );
+
+  const isMindSmith = Boolean(
+    item.imageUrl &&
+      (item.imageUrl.toLowerCase().includes("mind-smith") ||
+        item.imageUrl.toLowerCase().includes("mindsmith"))
+  );
+
+  const isScholar = Boolean(
+    item.imageUrl && item.imageUrl.toLowerCase().includes("scholar")
+  );
+
+  const isAbp = Boolean(
+    item.imageUrl && item.imageUrl.toLowerCase().includes("abp")
   );
 
   return (
@@ -80,7 +100,19 @@ export default function DetailModal({
           {/* Foreground Uncropped Image Container */}
           <div className="relative w-full h-full min-h-[240px] sm:min-h-[280px] p-4 sm:p-6 flex items-center justify-center z-10">
             {isLogo ? (
-              <div className="relative w-full h-64 sm:h-72 md:h-80 max-w-sm rounded-3xl bg-white p-6 sm:p-8 shadow-2xl flex items-center justify-center border border-white/30">
+              <div
+                className={`relative w-full ${
+                  isAbp
+                    ? "h-full max-h-[460px] md:max-h-[500px]"
+                    : "h-64 sm:h-72 md:h-80 max-w-sm"
+                } rounded-3xl ${
+                  isMindSmith
+                    ? "bg-[#EFF8FD]"
+                    : isScholar
+                    ? "bg-[#115d2f]"
+                    : "bg-white"
+                } ${isAbp ? "p-3 sm:p-4" : "p-6 sm:p-8"} shadow-2xl flex items-center justify-center border border-white/30`}
+              >
                 <div className="relative w-full h-full">
                   <Image
                     src={item.imageUrl}

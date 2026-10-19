@@ -67,6 +67,19 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
               });
             }
 
+            // Auto-heal experience logo paths if pointing to old placeholder
+            if (Array.isArray(parsed.experience)) {
+              parsed.experience = parsed.experience.map((exp: ExperienceItem) => {
+                if (exp.id === "exp-4" && (!exp.imageUrl || exp.imageUrl === "/images/card_insurance_ops.jpg")) {
+                  return { ...exp, imageUrl: "/images/metlife-logo.png" };
+                }
+                if (exp.id === "exp-5" && (!exp.imageUrl || exp.imageUrl === "/images/card_insurance_ops.jpg")) {
+                  return { ...exp, imageUrl: "/images/exim-bank-logo.webp" };
+                }
+                return exp;
+              });
+            }
+
             // Migrate proj-2 and proj-3 from featured to upcomingProjects if previously cached in localStorage
             const movedIds = ["proj-2", "proj-3"];
             if (Array.isArray(parsed.featuredProjects)) {
@@ -90,6 +103,22 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
                   parsed.upcomingProjects.splice(idx, 0, du);
                 }
               }
+              // Auto-heal proj-2 (Mind Smiths Academy) image if pointing to old photo
+              parsed.upcomingProjects = parsed.upcomingProjects.map((p: ProjectItem) => {
+                if (p.id === "proj-2" && (p.imageUrl === "/images/azmain-adil-3.jpeg" || !p.imageUrl)) {
+                  return { ...p, imageUrl: "/images/mind-smith-academy.jpg" };
+                }
+                if (p.id === "proj-3" && (p.imageUrl === "/images/du-career-talk-keynote-green-delta.jpeg" || !p.imageUrl)) {
+                  return { ...p, imageUrl: "/images/scholar-logo.jpg" };
+                }
+                if (p.id === "up-1" && (p.imageUrl === "/images/azmain-plaid-blazer-gala.jpeg" || !p.imageUrl)) {
+                  return { ...p, imageUrl: "/images/positive-youth-photo.jpeg" };
+                }
+                if (p.id === "up-3" && (p.imageUrl === "/images/azmain-executive-editorial-full.jpeg" || !p.imageUrl)) {
+                  return { ...p, imageUrl: "/images/abp.jpeg" };
+                }
+                return p;
+              });
             }
 
             setData(parsed);

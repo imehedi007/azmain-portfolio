@@ -86,8 +86,8 @@
       "id": "achieve-3",
       "title": "Portfolio and Risk Strategy",
       "category": "Institutional Underwriting",
-      "metric": "BDT 60–70 Crore",
-      "description": "Restructured a major Tier-1 financial institution portfolio (BDT 60–70 crore, about 15% of company revenue) from concentrated, high-frequency risk toward a diversified 7,000+ policy structure, with a reported improvement of more than 1,000% in loss-ratio performance.",
+      "metric": "Special Project",
+      "description": "Restructured a major Tier-1 financial institution portfolio from concentrated, high-frequency risk toward a diversified 75+ policy structure, with a reported improvement of more than 70% in loss-ratio performance.",
       "tag": "Tier-1 FI · 7,000+ Policies",
       "icon": "ShieldCheck"
     },
@@ -299,7 +299,7 @@
         "Customer Relationship Management",
         "Financial Needs Analysis"
       ],
-      "imageUrl": "/images/card_insurance_ops.jpg",
+      "imageUrl": "/images/metlife-logo.png",
       "featured": false
     },
     {
@@ -329,7 +329,7 @@
         "Trade Compliance",
         "International Transactions"
       ],
-      "imageUrl": "/images/card_insurance_ops.jpg",
+      "imageUrl": "/images/exim-bank-logo.webp",
       "featured": false
     }
   ],
@@ -692,33 +692,6 @@
       "imageUrl": "/images/annual-business-conference-2024-award.jpeg"
     },
     {
-      "id": "proj-8",
-      "title": "Best Performing Distribution Channel Award 2025",
-      "subtitle": "Distribution Network & Executive Honors · Green Delta Insurance",
-      "category": "Corporate Honors",
-      "badge": "AWARD 2025",
-      "period": "2025",
-      "location": "Dhaka, Bangladesh",
-      "tags": [
-        "Distribution Channel",
-        "Award 2025",
-        "Operational Excellence",
-        "Green Delta Insurance"
-      ],
-      "shortDescription": "Conferred the prestigious Best Performing Distribution Channel Award 2025 at Green Delta Insurance PLC for exemplary operational performance and market outreach.",
-      "fullDescription": [
-        "Recognized by executive leadership for directing and piloting the highest-performing distribution channel across Green Delta Insurance PLC's nationwide network.",
-        "Honored for surpassing corporate growth benchmarks, streamlining distribution workflows, and expanding policyholder acquisition across diverse market segments.",
-        "Celebrated alongside core team members and branch leadership at the corporate annual ceremony on the red carpet."
-      ],
-      "responsibilities": [
-        "Spearheading channel strategy, agent productivity, and institutional client servicing protocols",
-        "Expanding non-life insurance distribution reach across corporate and retail verticals",
-        "Driving multi-branch channel synergy and high-margin underwriting revenue growth"
-      ],
-      "imageUrl": "/images/Best Performing Distribution Channel Award 2025.jpeg"
-    },
-    {
       "id": "proj-7",
       "title": "Green Delta & IDLC Finance Institutional Partnership Agreement",
       "subtitle": "Consumer Division Strategic Partnership Signing",
@@ -798,6 +771,32 @@
       "imageUrl": "/images/crdf-global-maritime-security-sanctions-conference.jpeg"
     },
     {
+      "id": "proj-8",
+      "title": "University of Dhaka Career Mentorship & Keynote",
+      "subtitle": "Department of Banking & Insurance · Faculty of Business Studies",
+      "category": "Academic Mentorship",
+      "badge": "DU KEYNOTE",
+      "period": "2024",
+      "location": "Dhaka, Bangladesh",
+      "tags": [
+        "University of Dhaka",
+        "Farzanah Chowdhury",
+        "Dr. Hasina Sheykh",
+        "Career Talk"
+      ],
+      "shortDescription": "Keynote speaker on stage at University of Dhaka Career Talk alongside MD Farzanah Chowdhury and Dept Chairman Dr. Hasina Sheykh.",
+      "fullDescription": [
+        "Invited keynote speaker at the University of Dhaka Faculty of Business Studies for the Green Delta Insurance Career Talk.",
+        "Addressed hundreds of business students and future insurance practitioners on industry career trajectories, modern underwriting, and leadership."
+      ],
+      "responsibilities": [
+        "Delivering address on career dynamics in non-life insurance and banking",
+        "Representing Green Delta Insurance alongside Managing Director & CEO Farzanah Chowdhury",
+        "Mentoring graduating cohorts on industry-academia transitions"
+      ],
+      "imageUrl": "/images/du-career-talk-keynote-green-delta.jpeg"
+    },
+    {
       "id": "proj-10",
       "title": "University of Dhaka Career Mentorship & Keynote",
       "subtitle": "Department of Banking & Insurance · Faculty of Business Studies",
@@ -851,54 +850,27 @@
   ],
   "upcomingProjects": [
     {
-      "id": "proj-2",
-      "title": "Mind Smiths Academy",
-      "subtitle": "Managing Partner & Strategic Lead",
-      "category": "Academic Enterprise",
-      "badge": "VENTURE",
-      "period": "04/2023 – Present",
+      "id": "up-2",
+      "title": "Ahoban Foundation Community Outreach",
+      "subtitle": "Dedicated Volunteer & Field Organizer",
+      "category": "Social Leadership",
+      "badge": "VOLUNTEER",
+      "period": "06/2011 – Present",
       "tags": [
-        "Managing Partner",
-        "Curriculum Strategy",
-        "Academic Operations"
+        "Ahoban Foundation",
+        "Social Welfare",
+        "Disaster Relief",
+        "Charitable Events"
       ],
-      "shortDescription": "Co-founded and managing high-caliber educational venture providing structured skill enhancement and professional coaching.",
+      "shortDescription": "Actively participating in social and charitable events organized by Ahoban Foundation for over a decade.",
       "fullDescription": [
-        "Serving as Managing Partner, overseeing institutional strategy, fiscal planning, and mentor recruitment.",
-        "Designed comprehensive student learning trajectories bridging academic theory with real-world corporate competencies."
+        "Consistently engaged in ground-level humanitarian welfare drives, medical relief camps, and emergency distribution initiatives across Dhaka."
       ],
       "responsibilities": [
-        "Overseeing organizational fiscal strategy, budget allocation, and partner relations",
-        "Managing marketing and community outreach to prospective students",
-        "Leading faculty recruitment and instructional quality standards"
+        "Participating in emergency relief distribution and social campaigns",
+        "Coordinating field logistics for free health and education outreach"
       ],
-      "imageUrl": "/images/azmain-adil-3.jpeg"
-    },
-    {
-      "id": "proj-3",
-      "title": "Scholars University Admission Coaching",
-      "subtitle": "Branch Director & Senior Instructor",
-      "category": "Academic Leadership",
-      "badge": "LEADERSHIP",
-      "period": "01/2016 – 12/2023",
-      "location": "Dhaka, Bangladesh",
-      "tags": [
-        "Branch Director",
-        "Senior Instructor",
-        "Mentorship",
-        "Growth"
-      ],
-      "shortDescription": "Directed branch administrative operations and instructed hundreds of aspiring students, achieving stellar public university entrance placements.",
-      "fullDescription": [
-        "Directed branch-level operational administration, faculty scheduling, and admissions enrollment for 8 years.",
-        "Delivered lecture series on business administration, analytical reasoning, and examination strategies for University of Dhaka admission tests."
-      ],
-      "responsibilities": [
-        "Directing daily branch administrative workflows, student services, and facility operations",
-        "Mentoring high-potential cohorts and tailoring specialized mock-exam analytics",
-        "Driving student enrollment growth through high success rates and community trust"
-      ],
-      "imageUrl": "/images/du-career-talk-keynote-green-delta.jpeg"
+      "imageUrl": "/images/charity.jpeg"
     },
     {
       "id": "up-1",
@@ -923,30 +895,7 @@
         "Securing sponsorship funding and managing community capital deployment",
         "Overseeing volunteer teams to execute food, winter relief, and educational programs"
       ],
-      "imageUrl": "/images/azmain-plaid-blazer-gala.jpeg"
-    },
-    {
-      "id": "up-2",
-      "title": "Ahoban Foundation Community Outreach",
-      "subtitle": "Dedicated Volunteer & Field Organizer",
-      "category": "Social Leadership",
-      "badge": "VOLUNTEER",
-      "period": "06/2011 – Present",
-      "tags": [
-        "Ahoban Foundation",
-        "Social Welfare",
-        "Disaster Relief",
-        "Charitable Events"
-      ],
-      "shortDescription": "Actively participating in social and charitable events organized by Ahoban Foundation for over a decade.",
-      "fullDescription": [
-        "Consistently engaged in ground-level humanitarian welfare drives, medical relief camps, and emergency distribution initiatives across Dhaka."
-      ],
-      "responsibilities": [
-        "Participating in emergency relief distribution and social campaigns",
-        "Coordinating field logistics for free health and education outreach"
-      ],
-      "imageUrl": "/images/charity.jpeg"
+      "imageUrl": "/images/positive-youth-photo.jpeg"
     },
     {
       "id": "up-3",
@@ -969,30 +918,57 @@
         "Fostering campus awareness of global certifications and modern industry trends",
         "Facilitating career mentoring sessions between corporate leaders and undergraduates"
       ],
-      "imageUrl": "/images/azmain-executive-editorial-full.jpeg"
+      "imageUrl": "/images/abp.jpeg"
     },
     {
-      "id": "up-4",
-      "title": "InsurTech Distribution & Micro-Underwriting Initiative",
-      "subtitle": "Upcoming Digital Frontier",
-      "category": "Future Initiative",
-      "badge": "UPCOMING",
-      "period": "2026 – Future",
+      "id": "proj-3",
+      "title": "Scholars University Admission Coaching",
+      "subtitle": "Branch Director, Senior Instructor & Co-Author - FinancePedia",
+      "category": "Academic Leadership",
+      "badge": "LEADERSHIP",
+      "period": "01/2016 – 12/2023",
+      "location": "Dhaka, Bangladesh",
       "tags": [
-        "InsurTech",
-        "Micro-Insurance",
-        "Digital Distribution",
-        "Bangladesh 2026"
+        "Branch Director",
+        "Senior Instructor",
+        "Mentorship",
+        "Growth"
       ],
-      "shortDescription": "Conceptualizing simplified micro-insurance distribution mechanisms tailored for rural mufassil enterprises and digital retail channels.",
+      "shortDescription": "Directed branch administrative operations and instructed hundreds of aspiring students, achieving stellar public university entrance placements.",
       "fullDescription": [
-        "Designing algorithmic micro-underwriting criteria to provide accessible risk protection to previously uninsured small and medium businesses."
+        "Directed branch-level operational administration, faculty scheduling, and admissions enrollment for 8 years.",
+        "Delivered lecture series on business administration, analytical reasoning, and examination strategies for University of Dhaka admission tests."
       ],
       "responsibilities": [
-        "Mapping digital policy issuance and claims verification journeys",
-        "Modeling micro-premium actuarial structures for small enterprise protection"
+        "Directing daily branch administrative workflows, student services, and facility operations",
+        "Mentoring high-potential cohorts and tailoring specialized mock-exam analytics",
+        "Driving student enrollment growth through high success rates and community trust"
       ],
-      "imageUrl": "/images/card_insurance_ops.jpg"
+      "imageUrl": "/images/scholar-logo.jpg"
+    },
+    {
+      "id": "proj-2",
+      "title": "Mind Smiths Academy",
+      "subtitle": "Managing Partner & Strategic Lead",
+      "category": "Academic Enterprise",
+      "badge": "VENTURE",
+      "period": "04/2023 – Present",
+      "tags": [
+        "Managing Partner",
+        "Curriculum Strategy",
+        "Academic Operations"
+      ],
+      "shortDescription": "Co-founded and managing high-caliber educational venture providing structured academic skill enhancement and professional coaching.",
+      "fullDescription": [
+        "Serving as Managing Partner, overseeing institutional strategy, fiscal planning, and mentor recruitment.",
+        "Designed comprehensive student learning trajectories bridging academic theory with real-world corporate competencies."
+      ],
+      "responsibilities": [
+        "Overseeing organizational fiscal strategy, budget allocation, and partner relations",
+        "Managing marketing and community outreach to prospective students",
+        "Leading faculty recruitment and instructional quality standards"
+      ],
+      "imageUrl": "/images/mind-smith-academy.jpg"
     }
   ],
   "skills": [

@@ -46,7 +46,26 @@ export default function NetflixCard({
     item.imageUrl.toLowerCase().includes("logo") ||
     item.imageUrl.toLowerCase().includes("ndc") ||
     item.imageUrl.toLowerCase().includes("isc") ||
-    item.imageUrl.toLowerCase().includes("idc");
+    item.imageUrl.toLowerCase().includes("idc") ||
+    item.imageUrl.toLowerCase().includes("metlife") ||
+    item.imageUrl.toLowerCase().includes("exim") ||
+    item.imageUrl.toLowerCase().includes("mind-smith") ||
+    item.imageUrl.toLowerCase().includes("mindsmith") ||
+    item.imageUrl.toLowerCase().includes("scholar") ||
+    item.imageUrl.toLowerCase().includes("abp");
+
+  const isMindSmith =
+    item.imageUrl.toLowerCase().includes("mind-smith") ||
+    item.imageUrl.toLowerCase().includes("mindsmith");
+
+  const isScholar =
+    item.imageUrl.toLowerCase().includes("scholar");
+
+  const isAbp =
+    item.imageUrl.toLowerCase().includes("abp");
+
+  const isPositiveYouth =
+    item.imageUrl.toLowerCase().includes("positive-youth");
 
   return (
     <div
@@ -60,7 +79,13 @@ export default function NetflixCard({
       {/* Top Image Container - Supports 3:4 portrait or standard dynamic height */}
       <div
         className={`relative w-full overflow-hidden ${
-          isLogo ? "bg-white" : "bg-zinc-950"
+          isMindSmith
+            ? "bg-[#EFF8FD]"
+            : isScholar
+            ? "bg-[#115d2f]"
+            : isLogo
+            ? "bg-white"
+            : "bg-zinc-950"
         } ${
           isPortrait34
             ? "aspect-[3/4] min-h-[340px]"
@@ -78,9 +103,17 @@ export default function NetflixCard({
           }
           className={`${
             isLogo
-              ? "object-contain p-4 pb-5 sm:p-6 sm:pb-6"
+              ? isMindSmith
+                ? "object-contain p-2 sm:p-3"
+                : isScholar
+                ? "object-contain p-3.5 sm:p-4"
+                : isAbp
+                ? "object-contain p-2 sm:p-2.5"
+                : "object-contain p-4 pb-5 sm:p-6 sm:pb-6"
               : `object-cover ${
-                  isCert
+                  isPositiveYouth
+                    ? "object-[center_18%]"
+                    : isCert
                     ? "object-center"
                     : isPortrait34
                     ? "object-[center_16%]"

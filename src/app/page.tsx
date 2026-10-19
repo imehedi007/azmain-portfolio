@@ -174,11 +174,11 @@ export default function HomePage() {
         onCardClick={(item) => setSelectedCard(item)}
       />
 
-      {/* Row 2: Education */}
+      {/* Row 2: Career Highlights */}
       <RowCarousel
-        id="education"
-        title="Education"
-        items={educationCardItems}
+        id="work"
+        title="Career Highlights"
+        items={featuredProjectCardItems}
         onCardClick={(item) => setSelectedCard(item)}
       />
 
@@ -190,11 +190,11 @@ export default function HomePage() {
         onCardClick={(item) => setSelectedCard(item)}
       />
 
-      {/* Row 4: Career Highlights */}
+      {/* Row 4: Education */}
       <RowCarousel
-        id="work"
-        title="Career Highlights"
-        items={featuredProjectCardItems}
+        id="education"
+        title="Education"
+        items={educationCardItems}
         onCardClick={(item) => setSelectedCard(item)}
       />
 

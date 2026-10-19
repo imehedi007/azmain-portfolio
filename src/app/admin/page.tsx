@@ -23,6 +23,7 @@ import {
   Sparkles,
   Users,
   Code2,
+  Star,
   ExternalLink,
   Download,
   Upload,
@@ -73,8 +74,10 @@ export default function AdminPage() {
   const [activeTab, setActiveTab] = useState<
     | "profile"
     | "experience"
-    | "education"
+    | "highlights"
     | "certifications"
+    | "education"
+    | "extracurricular"
     | "projects"
     | "skills"
     | "references"
@@ -198,9 +201,10 @@ export default function AdminPage() {
   const tabs = [
     { id: "profile", label: "Profile & Hero", icon: User },
     { id: "experience", label: "Experience", icon: Briefcase },
+    { id: "highlights", label: "Career Highlights", icon: Star },
+    { id: "certifications", label: "Awards & Certifications", icon: Award },
     { id: "education", label: "Education", icon: GraduationCap },
-    { id: "certifications", label: "Certifications", icon: Award },
-    { id: "projects", label: "Projects & Ventures", icon: Layers },
+    { id: "extracurricular", label: "Extra Curricular", icon: Layers },
     { id: "skills", label: "Skills & Matrix", icon: Sparkles },
     { id: "references", label: "References", icon: Users },
     { id: "json", label: "Raw JSON", icon: Code2 },
@@ -453,13 +457,21 @@ export default function AdminPage() {
               />
             )}
 
-            {activeTab === "education" && (
-              <EducationTab
-                education={currentData.education}
-                onChange={(edu) => {
+            {(activeTab === "highlights" || activeTab === "projects") && (
+              <ProjectsTab
+                mode={activeTab === "projects" ? "all" : "highlights"}
+                featuredProjects={currentData.featuredProjects}
+                upcomingProjects={currentData.upcomingProjects}
+                onChangeFeatured={(proj) => {
                   setDraftData((prev) => ({
                     ...(prev ?? data),
-                    education: edu,
+                    featuredProjects: proj,
+                  }));
+                }}
+                onChangeUpcoming={(proj) => {
+                  setDraftData((prev) => ({
+                    ...(prev ?? data),
+                    upcomingProjects: proj,
                   }));
                 }}
               />
@@ -477,8 +489,21 @@ export default function AdminPage() {
               />
             )}
 
-            {activeTab === "projects" && (
+            {activeTab === "education" && (
+              <EducationTab
+                education={currentData.education}
+                onChange={(edu) => {
+                  setDraftData((prev) => ({
+                    ...(prev ?? data),
+                    education: edu,
+                  }));
+                }}
+              />
+            )}
+
+            {activeTab === "extracurricular" && (
               <ProjectsTab
+                mode="extracurricular"
                 featuredProjects={currentData.featuredProjects}
                 upcomingProjects={currentData.upcomingProjects}
                 onChangeFeatured={(proj) => {

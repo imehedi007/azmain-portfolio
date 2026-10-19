@@ -77,8 +77,8 @@ export default function Footer({ onOpenContact }: FooterProps) {
                 </a>
               </li>
               <li>
-                <a href="#education" className="hover:text-white transition-colors">
-                  Academic Qualifications
+                <a href="#work" className="hover:text-white transition-colors">
+                  Career Highlights
                 </a>
               </li>
               <li>
@@ -87,8 +87,8 @@ export default function Footer({ onOpenContact }: FooterProps) {
                 </a>
               </li>
               <li>
-                <a href="#work" className="hover:text-white transition-colors">
-                  Career Highlights
+                <a href="#education" className="hover:text-white transition-colors">
+                  Education
                 </a>
               </li>
               <li>

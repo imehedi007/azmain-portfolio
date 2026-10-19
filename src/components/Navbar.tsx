@@ -19,9 +19,12 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
   const navLinks = [
     { label: "About", href: "#about", id: "about" },
     { label: "Experience", href: "#experience", id: "experience" },
-    { label: "Work", href: "#work", id: "work" },
+    { label: "Career Highlights", href: "#work", id: "work" },
+    { label: "Awards", href: "#certifications", id: "certifications" },
+    { label: "Education", href: "#education", id: "education" },
+    { label: "Extra Curricular", href: "#extracurricular", id: "extracurricular" },
     { label: "Skills", href: "#skills", id: "skills" },
-    { label: "Testimonials", href: "#testimonials", id: "testimonials" },
+    { label: "References", href: "#testimonials", id: "testimonials" },
   ];
 
   const handleNavClick = (
@@ -74,6 +77,9 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
         "about",
         "experience",
         "work",
+        "certifications",
+        "education",
+        "extracurricular",
         "skills",
         "testimonials",
       ];
@@ -140,7 +146,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center gap-3.5 xl:gap-5 2xl:gap-7">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
@@ -148,7 +154,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
                   key={link.id}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.id, link.href)}
-                  className={`text-sm font-medium tracking-wide transition-all relative py-1 cursor-pointer ${
+                  className={`text-xs xl:text-[13px] 2xl:text-sm font-medium tracking-wide transition-all relative py-1 cursor-pointer whitespace-nowrap ${
                     isActive
                       ? "text-white font-semibold"
                       : "text-zinc-300 hover:text-white"
@@ -186,7 +192,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
             {/* Mobile menu hamburger toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-zinc-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
+              className="lg:hidden p-2 text-zinc-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? (
@@ -200,7 +206,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#121212]/95 backdrop-blur-xl border-b border-white/10 px-4 pt-3 pb-6 space-y-3 animate-in slide-in-from-top-4 duration-200">
+          <div className="lg:hidden bg-[#121212]/95 backdrop-blur-xl border-b border-white/10 px-4 pt-3 pb-6 space-y-2 animate-in slide-in-from-top-4 duration-200 max-h-[80vh] overflow-y-auto">
             {navLinks.map((link) => (
               <a
                 key={link.id}
@@ -209,7 +215,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
                   handleNavClick(e, link.id, link.href);
                   setMobileMenuOpen(false);
                 }}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors cursor-pointer ${
+                className={`block px-3 py-2.5 rounded-md text-base font-medium transition-colors cursor-pointer ${
                   activeSection === link.id
                     ? "text-white bg-white/10 font-bold border-l-4 border-[#E50914]"
                     : "text-zinc-300 hover:text-white hover:bg-white/5"

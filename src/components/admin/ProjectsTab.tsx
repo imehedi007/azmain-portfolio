@@ -9,6 +9,7 @@ interface ProjectsTabProps {
   upcomingProjects: ProjectItem[];
   onChangeFeatured: (projects: ProjectItem[]) => void;
   onChangeUpcoming: (projects: ProjectItem[]) => void;
+  mode?: "highlights" | "extracurricular" | "all";
 }
 
 export default function ProjectsTab({
@@ -16,12 +17,22 @@ export default function ProjectsTab({
   upcomingProjects,
   onChangeFeatured,
   onChangeUpcoming,
+  mode = "all",
 }: ProjectsTabProps) {
   const [activeSubTab, setActiveSubTab] = useState<"featured" | "upcoming">("featured");
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  const currentList = activeSubTab === "featured" ? featuredProjects : upcomingProjects;
-  const currentSetter = activeSubTab === "featured" ? onChangeFeatured : onChangeUpcoming;
+  const isHighlightsOnly = mode === "highlights";
+  const isExtraCurricularOnly = mode === "extracurricular";
+
+  const effectiveSubTab = isHighlightsOnly
+    ? "featured"
+    : isExtraCurricularOnly
+    ? "upcoming"
+    : activeSubTab;
+
+  const currentList = effectiveSubTab === "featured" ? featuredProjects : upcomingProjects;
+  const currentSetter = effectiveSubTab === "featured" ? onChangeFeatured : onChangeUpcoming;
 
   const moveItem = (index: number, direction: "up" | "down") => {
     const targetIndex = direction === "up" ? index - 1 : index + 1;
@@ -33,19 +44,22 @@ export default function ProjectsTab({
   };
 
   const addItem = () => {
+    const isUpcoming = effectiveSubTab === "upcoming";
     const newItem: ProjectItem = {
       id: `proj-${Date.now()}`,
-      title: "New Initiative / Venture",
-      subtitle: "Focus / Scope",
-      category: activeSubTab === "featured" ? "Strategic Venture" : "Community Leadership",
-      badge: activeSubTab === "featured" ? "STRATEGY" : "COMMUNITY",
+      title: isUpcoming ? "New Extra Curricular Venture" : "New Career Highlight",
+      subtitle: isUpcoming ? "Leadership / Operations" : "Corporate Honor / Key Milestone",
+      category: isUpcoming ? "Academic Enterprise" : "Corporate Honors",
+      badge: isUpcoming ? "LEADERSHIP" : "AWARD 2026",
       period: "2026 – Present",
-      tags: ["Initiative", "Operations"],
-      shortDescription: "Concise summary of project objectives, operations, and impact.",
+      tags: isUpcoming ? ["Leadership", "Community"] : ["Milestone", "Recognition"],
+      shortDescription: isUpcoming
+        ? "Summary of organizational leadership, mission, and achievements."
+        : "Summary of milestone, institutional significance, and professional impact.",
       fullDescription: ["Detailed contextual breakdown of operations."],
       responsibilities: ["Key operational responsibility 1", "Key achievement 2"],
-      imageUrl: "/images/card_insurance_ops.jpg",
-      isUpcoming: activeSubTab === "upcoming",
+      imageUrl: isUpcoming ? "/images/mind-smith-academy.jpg" : "/images/card_insurance_ops.jpg",
+      isUpcoming,
     };
     currentSetter([newItem, ...currentList]);
     setExpandedId(newItem.id);
@@ -85,48 +99,68 @@ export default function ProjectsTab({
     });
   };
 
+  const headerTitle = isHighlightsOnly
+    ? "Career Highlights"
+    : isExtraCurricularOnly
+    ? "Extra Curricular"
+    : "Career Highlights & Extra Curricular";
+
+  const headerDescription = isHighlightsOnly
+    ? "Manage high-impact corporate honors, keynote speeches, institutional awards, and enterprise milestones."
+    : isExtraCurricularOnly
+    ? "Manage leadership ventures, social initiatives, youth society presidencies, and community programs."
+    : "Manage both Career Highlights and Extra Curricular programs.";
+
   return (
     <div className="space-y-6 max-w-4xl">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h3 className="text-xl font-bold text-white">
-            Projects, Ventures & Community Initiatives
+            {headerTitle}
           </h3>
           <p className="text-xs text-zinc-400">
-            Manage both Featured Operational Ventures and Upcoming/Community Programs.
+            {headerDescription}
           </p>
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="bg-zinc-900 border border-white/10 rounded-lg p-1 flex">
-            <button
-              onClick={() => setActiveSubTab("featured")}
-              className={`px-3 py-1 text-xs font-semibold rounded-md transition-colors cursor-pointer ${
-                activeSubTab === "featured"
-                  ? "bg-[#E50914] text-white"
-                  : "text-zinc-400 hover:text-white"
-              }`}
-            >
-              Featured ({featuredProjects.length})
-            </button>
-            <button
-              onClick={() => setActiveSubTab("upcoming")}
-              className={`px-3 py-1 text-xs font-semibold rounded-md transition-colors cursor-pointer ${
-                activeSubTab === "upcoming"
-                  ? "bg-[#E50914] text-white"
-                  : "text-zinc-400 hover:text-white"
-              }`}
-            >
-              Upcoming ({upcomingProjects.length})
-            </button>
-          </div>
+          {!isHighlightsOnly && !isExtraCurricularOnly && (
+            <div className="bg-zinc-900 border border-white/10 rounded-lg p-1 flex">
+              <button
+                onClick={() => setActiveSubTab("featured")}
+                className={`px-3 py-1 text-xs font-semibold rounded-md transition-colors cursor-pointer ${
+                  activeSubTab === "featured"
+                    ? "bg-[#E50914] text-white"
+                    : "text-zinc-400 hover:text-white"
+                }`}
+              >
+                Career Highlights ({featuredProjects.length})
+              </button>
+              <button
+                onClick={() => setActiveSubTab("upcoming")}
+                className={`px-3 py-1 text-xs font-semibold rounded-md transition-colors cursor-pointer ${
+                  activeSubTab === "upcoming"
+                    ? "bg-[#E50914] text-white"
+                    : "text-zinc-400 hover:text-white"
+                }`}
+              >
+                Extra Curricular ({upcomingProjects.length})
+              </button>
+            </div>
+          )}
 
           <button
             onClick={addItem}
             className="bg-[#E50914] hover:bg-[#ff1e27] text-white text-xs font-bold px-3.5 py-2 rounded-md flex items-center gap-1.5 transition-all cursor-pointer"
           >
             <Plus className="w-4 h-4" />
-            <span>Add Item</span>
+            <span>
+              {isHighlightsOnly
+                ? "Add Highlight"
+                : isExtraCurricularOnly
+                ? "Add Extra Curricular"
+                : "Add Item"}
+            </span>
           </button>
         </div>
       </div>
