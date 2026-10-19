@@ -27,106 +27,109 @@ export default function AboutSection({ onOpenContact }: AboutSectionProps) {
   const { data } = usePortfolio();
   const { profile } = data;
 
-  const availablePhotos = [
+  interface AboutPhoto {
+    id: string;
+    url: string;
+    label: string;
+    objectPosition?: string;
+  }
+
+  const availablePhotos: AboutPhoto[] = [
     {
-      id: "crimson-tie",
-      url: "/images/azmain-crimson-tie-portrait.jpeg",
-      label: "Crimson Tie",
-    },
-    {
-      id: "du-convocation",
-      url: "/images/du-convocation-azmain-adil.jpeg",
-      label: "DU Convocation",
-    },
-    {
-      id: "du-business-studies",
-      url: "/images/dhaka-university.jpeg",
-      label: "DU Business Studies",
-    },
-    {
-      id: "ahoban-relief",
-      url: "/images/charity.jpeg",
-      label: "Ahoban Relief",
-    },
-    {
-      id: "idlc-signing",
-      url: "/images/idlc-finance-agreement-signing-green-delta.jpeg",
-      label: "IDLC Signing",
-    },
-    {
-      id: "du-career-talk",
-      url: "/images/du-career-talk-keynote-green-delta.jpeg",
-      label: "DU Career Talk",
-    },
-    {
-      id: "gdi-distribution",
-      url: "/images/branches-distribution-gdi-highlights-2025.jpg",
-      label: "GDI Distribution",
+      id: "conference-2026",
+      url: "/images/about/about-conference-2026.jpeg",
+      label: "Business Conference 2026",
+      objectPosition: "center 18%",
     },
     {
       id: "executive-atrium",
-      url: "/images/azmain-executive-atrium.jpeg",
-      label: "Executive Atrium",
+      url: "/images/about/about-executive-atrium.jpeg",
+      label: "Bimtech",
+      objectPosition: "center 20%",
     },
     {
-      id: "half-yearly-2023",
-      url: "/images/half-yearly-business-conference-2023-speech.jpeg",
-      label: "Conference 2023",
+      id: "du-future-leaders",
+      url: "/images/about/about-du-future-leaders.jpeg",
+      label: "DU Future Leaders 2023",
+      objectPosition: "center 15%",
     },
     {
-      id: "office-olympics",
-      url: "/images/green-delta-office-olympics-2023.jpg",
-      label: "Office Olympics",
+      id: "leadership-team",
+      url: "/images/about/about-leadership-team.jpeg",
+      label: "Corporate Leadership",
+      objectPosition: "center 22%",
     },
     {
-      id: "pitch-coaching",
-      url: "/images/art-of-the-pitch-knowledge-sharing.jpeg",
-      label: "Pitch Coaching",
+      id: "above-beyond-award",
+      url: "/images/about/about-above-beyond-award.jpeg",
+      label: "Above & Beyond Award",
+      objectPosition: "center 40%",
     },
     {
-      id: "gala-night",
-      url: "/images/azmain-plaid-blazer-gala.jpeg",
-      label: "Gala Night",
+      id: "maritime-security",
+      url: "/images/about/about-maritime-security.jpeg",
+      label: "Maritime Security Summit",
+      objectPosition: "center 20%",
     },
     {
-      id: "editorial-full",
-      url: "/images/azmain-executive-editorial-full.jpeg",
-      label: "Modern Exec",
+      id: "sales-pitch-workshop",
+      url: "/images/about/about-sales-pitch-workshop.jpeg",
+      label: "Sales Pitch Framework",
+      objectPosition: "center 25%",
     },
     {
-      id: "annual-conference-2024",
-      url: "/images/annual-business-conference-2024-award.jpeg",
-      label: "Award 2024",
+      id: "industrial-inspection",
+      url: "/images/about/about-industrial-inspection.jpeg",
+      label: "Industrial Risk Audit",
+      objectPosition: "center 20%",
     },
     {
-      id: "award-2023",
-      url: "/images/green-delta-business-contribution-2023-award.jpeg",
-      label: "Award 2023",
+      id: "motorbike-campaign",
+      url: "/images/about/about-motorbike-campaign.jpeg",
+      label: "Retail Outreach Campaign",
+      objectPosition: "center 20%",
     },
     {
-      id: "crdf-maritime",
-      url: "/images/crdf-global-maritime-security-sanctions-conference.jpeg",
-      label: "Maritime Security",
+      id: "bimtech-valedictory",
+      url: "/images/about/about-bimtech-valedictory.jpeg",
+      label: "BIMTECH Valedictory",
+      objectPosition: "center 25%",
     },
     {
       id: "skill-bank-ethics",
-      url: "/images/bangladesh-skill-bank-communication-ethics-certificate.jpeg",
-      label: "Business Ethics",
+      url: "/images/about/about-skill-bank-ethics.jpeg",
+      label: "Business Ethics Training",
+      objectPosition: "center 20%",
     },
     {
-      id: "bimtech-india",
-      url: "/images/bimtech-certificate-valedictory.jpeg",
-      label: "BIMTECH India",
+      id: "stage-anchor",
+      url: "/images/about/about-stage-anchor.jpeg",
+      label: "Stage Emcee & Host",
+      objectPosition: "center 20%",
     },
     {
-      id: "selling-honors",
-      url: "/images/excellence-insurance-selling.jpeg",
-      label: "Selling Honors",
+      id: "cricket-fest",
+      url: "/images/about/about-cricket-fest.jpeg",
+      label: "Cricket Fest Honors",
+      objectPosition: "center 25%",
     },
     {
-      id: "keynote-speech",
-      url: "/images/azmain-adil.jpeg",
-      label: "Keynote 2026",
+      id: "olympics-stage",
+      url: "/images/about/about-office-olympics-stage.jpg",
+      label: "Office Olympics Stage",
+      objectPosition: "center 22%",
+    },
+    {
+      id: "olympics-booth",
+      url: "/images/about/about-office-olympics-booth.jpeg",
+      label: "Office Olympics 2026",
+      objectPosition: "center 24%",
+    },
+    {
+      id: "olympics-podium",
+      url: "/images/about/about-office-olympics-podium.jpeg",
+      label: "Olympics Podium Victory",
+      objectPosition: "center 25%",
     },
   ];
 
@@ -387,7 +390,8 @@ export default function AboutSection({ onOpenContact }: AboutSectionProps) {
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 320px, 340px"
                 priority={currentIndex === 0}
-                className="object-cover object-[center_16%] group-hover:scale-105 transition-transform duration-700 animate-in fade-in duration-500"
+                style={{ objectPosition: currentPhoto.objectPosition || "center 16%" }}
+                className="object-cover group-hover:scale-105 transition-transform duration-700 animate-in fade-in duration-500"
               />
 
               {/* Gradient Overlays */}
