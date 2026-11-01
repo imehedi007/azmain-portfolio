@@ -1,12 +1,85 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { usePortfolio } from "@/context/PortfolioContext";
 import { Briefcase, GraduationCap, Award, Check } from "lucide-react";
+import { gsap } from "@/lib/gsap";
 
 export default function ProfessionalCut() {
   const { data } = usePortfolio();
   const { experience, education, certifications } = data;
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const leftColRef = useRef<HTMLDivElement>(null);
+  const rightColRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header Animation
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current.children,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Left Column (Experience)
+      if (leftColRef.current) {
+        gsap.fromTo(
+          leftColRef.current,
+          { opacity: 0, x: -40, y: 30 },
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            duration: 0.9,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: leftColRef.current,
+              start: "top 82%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Right Column (Education & Certifications)
+      if (rightColRef.current) {
+        gsap.fromTo(
+          rightColRef.current.children,
+          { opacity: 0, x: 40, y: 30 },
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            duration: 0.9,
+            stagger: 0.18,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: rightColRef.current,
+              start: "top 82%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   // Selected top experiences
   const topExperiences = (experience || []).slice(0, 3);
@@ -16,9 +89,12 @@ export default function ProfessionalCut() {
   const topCerts = (certifications || []).slice(0, 5);
 
   return (
-    <section className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto">
+    <section
+      ref={sectionRef}
+      className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto"
+    >
       {/* Eyebrow & Headline */}
-      <div className="space-y-2 mb-10">
+      <div ref={headerRef} className="space-y-2 mb-10">
         <span className="text-xs font-bold text-[#E50914] uppercase tracking-widest flex items-center gap-2">
           <span className="w-1.5 h-1.5 rounded-full bg-[#E50914]" />
           The Professional Cut
@@ -31,7 +107,10 @@ export default function ProfessionalCut() {
       {/* Grid: Left Column (Experience) + Right Column (Education & Certifications) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left Card: Experience Timeline */}
-        <div className="lg:col-span-7 bg-[#121212]/90 border border-white/10 rounded-2xl p-6 sm:p-8 relative flex flex-col justify-between hover:border-red-600/30 transition-colors">
+        <div
+          ref={leftColRef}
+          className="lg:col-span-7 bg-[#121212]/90 border border-white/10 rounded-2xl p-6 sm:p-8 relative flex flex-col justify-between hover:border-red-600/30 transition-colors"
+        >
           <div>
             {/* Card Header */}
             <div className="flex items-center gap-3 mb-8">
@@ -77,7 +156,7 @@ export default function ProfessionalCut() {
         </div>
 
         {/* Right Column: Education + Certifications Stack */}
-        <div className="lg:col-span-5 flex flex-col gap-6">
+        <div ref={rightColRef} className="lg:col-span-5 flex flex-col gap-6">
           {/* Top Card: Education */}
           <div className="bg-[#121212]/90 border border-white/10 rounded-2xl p-6 sm:p-7 hover:border-red-600/30 transition-colors flex-1 flex flex-col justify-between">
             <div>

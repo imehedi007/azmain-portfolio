@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import NetflixCard, { CardItem } from "./NetflixCard";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { gsap } from "@/lib/gsap";
 
 interface RowCarouselProps {
   id?: string;
@@ -21,7 +22,57 @@ export default function RowCarousel({
   onCardClick,
   aspectRatio,
 }: RowCarouselProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header Animation
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current,
+          { opacity: 0, x: -30 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.75,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 88%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Card Stagger Animation
+      if (scrollContainerRef.current) {
+        // Animate up to the first 6 cards for instant responsiveness
+        const cards = Array.from(scrollContainerRef.current.children).slice(0, 8);
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 40, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.75,
+            stagger: 0.06,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: scrollContainerRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
@@ -37,10 +88,10 @@ export default function RowCarousel({
   if (!items || items.length === 0) return null;
 
   return (
-    <section id={id} className="py-8 sm:py-10 scroll-mt-24">
+    <section ref={sectionRef} id={id} className="py-8 sm:py-10 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Row Header with Title & Arrow Navigation */}
-        <div className="flex items-end justify-between mb-5">
+        <div ref={headerRef} className="flex items-end justify-between mb-5">
           <div className="space-y-1">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
               {title}

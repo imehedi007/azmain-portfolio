@@ -67,7 +67,17 @@ export default function Footer({ onOpenContact }: FooterProps) {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#about" className="hover:text-white transition-colors">
+                <a
+                  href="#about"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+                    if (typeof window !== "undefined") {
+                      window.history.pushState(null, "", "#about");
+                    }
+                  }}
+                  className="hover:text-white transition-colors"
+                >
                   About &amp; Background
                 </a>
               </li>

@@ -1,19 +1,75 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { usePortfolio } from "@/context/PortfolioContext";
 import { Mail, Quote } from "lucide-react";
+import { gsap } from "@/lib/gsap";
 
 export default function ReferencesSection() {
   const { data } = usePortfolio();
   const { references } = data;
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header Animation
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current.children,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // References Cards Animation
+      if (cardsRef.current) {
+        gsap.fromTo(
+          cardsRef.current.children,
+          { opacity: 0, y: 45, scale: 0.96 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.85,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: cardsRef.current,
+              start: "top 83%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   if (!references || references.length === 0) return null;
 
   return (
-    <section id="testimonials" className="py-16 bg-[#0a0a0a] scroll-mt-24">
+    <section
+      id="testimonials"
+      ref={sectionRef}
+      className="py-16 bg-[#0a0a0a] scroll-mt-24"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-1.5 mb-10">
+        <div ref={headerRef} className="space-y-1.5 mb-10">
           <span className="text-xs font-bold text-[#E50914] uppercase tracking-widest">
             Endorsements & Verification
           </span>
@@ -25,7 +81,7 @@ export default function ReferencesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {references.map((ref, idx) => (
             <div
               key={ref.id || idx}

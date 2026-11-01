@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { usePortfolio } from "@/context/PortfolioContext";
 import {
   ShieldCheck,
@@ -12,10 +12,83 @@ import {
   Bike,
   Plane,
 } from "lucide-react";
+import { gsap } from "@/lib/gsap";
 
 export default function SkillsSection() {
   const { data } = usePortfolio();
   const { skills, languages, hobbies } = data;
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const subStripRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header Animation
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current.children,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Categories Grid Animation
+      if (gridRef.current) {
+        gsap.fromTo(
+          gridRef.current.children,
+          { opacity: 0, y: 45, scale: 0.94 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: gridRef.current,
+              start: "top 83%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Languages and Hobbies Sub-strip Animation
+      if (subStripRef.current) {
+        gsap.fromTo(
+          subStripRef.current.children,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: subStripRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const getHobbyIcon = (hobby: string) => {
     const lower = hobby.toLowerCase();
@@ -26,10 +99,14 @@ export default function SkillsSection() {
   };
 
   return (
-    <section id="skills" className="py-16 bg-[#0e0e0e] border-t border-b border-white/5 scroll-mt-24">
+    <section
+      id="skills"
+      ref={sectionRef}
+      className="py-16 bg-[#0e0e0e] border-t border-b border-white/5 scroll-mt-24"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="space-y-1.5 mb-10">
+        <div ref={headerRef} className="space-y-1.5 mb-10">
           <span className="text-xs font-bold text-[#E50914] uppercase tracking-widest">
             Core Competencies & Capabilities
           </span>
@@ -42,7 +119,7 @@ export default function SkillsSection() {
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {skills && skills.length > 0 ? (
             skills.map((category, idx) => (
               <div
@@ -87,7 +164,7 @@ export default function SkillsSection() {
         </div>
 
         {/* Languages and Hobbies Sub-strip */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <div ref={subStripRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
           {/* Languages */}
           <div className="bg-[#141414] border border-white/10 rounded-xl p-6">
             <div className="flex items-center gap-3 mb-4">

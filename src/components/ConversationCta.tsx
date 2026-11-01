@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { usePortfolio } from "@/context/PortfolioContext";
 import { Send, Check, Copy, FileText } from "lucide-react";
 import { LinkedInIcon, FacebookIcon } from "@/components/Icons";
+import { gsap } from "@/lib/gsap";
 
 interface ConversationCtaProps {
   onOpenContact: () => void;
@@ -13,6 +14,74 @@ export default function ConversationCta({ onOpenContact }: ConversationCtaProps)
   const { data } = usePortfolio();
   const { profile } = data;
   const [copied, setCopied] = useState(false);
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const leftContentRef = useRef<HTMLDivElement>(null);
+  const rightContentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (cardRef.current) {
+        gsap.fromTo(
+          cardRef.current,
+          { opacity: 0, y: 50, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.9,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: cardRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      if (leftContentRef.current) {
+        gsap.fromTo(
+          leftContentRef.current.children,
+          { opacity: 0, x: -30 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: cardRef.current,
+              start: "top 83%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      if (rightContentRef.current) {
+        gsap.fromTo(
+          rightContentRef.current.children,
+          { opacity: 0, x: 30 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: cardRef.current,
+              start: "top 83%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const handleCopyEmail = () => {
     if (typeof navigator !== "undefined" && navigator.clipboard) {
@@ -30,15 +99,21 @@ export default function ConversationCta({ onOpenContact }: ConversationCtaProps)
     "https://www.facebook.com/azmain.adil.rifat";
 
   return (
-    <section className="py-12 sm:py-20 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto">
-      <div className="relative rounded-3xl bg-gradient-to-br from-[#180a0c] via-[#120507] to-[#0c0c0c] border border-red-900/40 p-8 sm:p-12 md:p-16 overflow-hidden shadow-2xl shadow-red-950/30">
+    <section
+      ref={sectionRef}
+      className="py-12 sm:py-20 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto"
+    >
+      <div
+        ref={cardRef}
+        className="relative rounded-3xl bg-gradient-to-br from-[#180a0c] via-[#120507] to-[#0c0c0c] border border-red-900/40 p-8 sm:p-12 md:p-16 overflow-hidden shadow-2xl shadow-red-950/30"
+      >
         {/* Subtle Ambient Red Glow */}
         <div className="absolute -top-32 -left-32 w-80 h-80 rounded-full bg-[#E50914]/15 blur-[100px] pointer-events-none" />
         <div className="absolute -bottom-32 -right-32 w-80 h-80 rounded-full bg-red-800/10 blur-[100px] pointer-events-none" />
 
         <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
           {/* Left Column: Heading & Pitch */}
-          <div className="space-y-4 max-w-2xl">
+          <div ref={leftContentRef} className="space-y-4 max-w-2xl">
             <span className="text-xs font-bold text-[#E50914] uppercase tracking-widest flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E50914]" />
               Start a Conversation
@@ -73,7 +148,7 @@ export default function ConversationCta({ onOpenContact }: ConversationCtaProps)
           </div>
 
           {/* Right Column: Contact Details & Socials */}
-          <div className="lg:text-right space-y-6 shrink-0 w-full lg:w-auto">
+          <div ref={rightContentRef} className="lg:text-right space-y-6 shrink-0 w-full lg:w-auto">
             {/* Email */}
             <div className="space-y-1">
               <span className="text-[11px] font-bold text-zinc-500 uppercase tracking-widest block">

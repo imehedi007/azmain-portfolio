@@ -1,11 +1,38 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { usePortfolio } from "@/context/PortfolioContext";
+import { gsap } from "@/lib/gsap";
 
 export default function BrandStrip() {
   const { data } = usePortfolio();
   const { brands } = data;
+
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      if (sectionRef.current) {
+        gsap.fromTo(
+          sectionRef.current,
+          { opacity: 0, y: 25 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 92%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   if (!brands || brands.length === 0) return null;
 
@@ -13,7 +40,10 @@ export default function BrandStrip() {
   const marqueeBrands = [...brands, ...brands];
 
   return (
-    <section className="relative z-20 -mt-6 sm:-mt-8 py-6 bg-transparent overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative z-20 -mt-6 sm:-mt-8 py-6 bg-transparent overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
         {/* Red label header */}
         <div className="flex items-center justify-between">

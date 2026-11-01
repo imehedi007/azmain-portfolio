@@ -1,6 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "@/lib/gsap";
 
 interface CapabilityItem {
   number: string;
@@ -49,10 +50,69 @@ const capabilities: CapabilityItem[] = [
 ];
 
 export default function CapabilitiesSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header Animation
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current.children,
+          { opacity: 0, y: 35 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            stagger: 0.15,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Staggered Cards Reveal
+      if (cardsRef.current) {
+        const cardElements = cardsRef.current.children;
+        gsap.fromTo(
+          cardElements,
+          { opacity: 0, y: 50, scale: 0.94 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            stagger: 0.09,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: cardsRef.current,
+              start: "top 82%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="capabilities" className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto">
+    <section
+      id="capabilities"
+      ref={sectionRef}
+      className="py-16 sm:py-24 px-4 sm:px-8 md:px-16 max-w-7xl mx-auto"
+    >
       {/* Section Header */}
-      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-10 border-b border-white/10">
+      <div
+        ref={headerRef}
+        className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-10 border-b border-white/10"
+      >
         <div className="space-y-2 max-w-2xl">
           <span className="text-xs font-bold text-[#E50914] uppercase tracking-widest flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[#E50914]" />
@@ -69,7 +129,10 @@ export default function CapabilitiesSection() {
       </div>
 
       {/* 2x3 Grid of Numbered Capability Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-8">
+      <div
+        ref={cardsRef}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-8"
+      >
         {capabilities.map((cap) => (
           <div
             key={cap.number}

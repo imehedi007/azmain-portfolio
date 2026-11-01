@@ -35,7 +35,7 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
     e.preventDefault();
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      el.scrollIntoView({ behavior: id === "about" ? "smooth" : "auto" });
       setActiveSection(id);
       if (typeof window !== "undefined") {
         window.history.pushState(null, "", href);
