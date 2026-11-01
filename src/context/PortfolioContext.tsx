@@ -15,8 +15,8 @@ import {
   KeyAchievement,
 } from "@/types/portfolio";
 
-const STORAGE_KEY = "azmain_portfolio_cms_data_v7";
-const LEGACY_STORAGE_KEY = "azmain_portfolio_cms_data_v6";
+const STORAGE_KEY = "azmain_portfolio_cms_data_v8";
+const LEGACY_STORAGE_KEY = "azmain_portfolio_cms_data_v7";
 
 interface PortfolioContextType {
   data: PortfolioData;

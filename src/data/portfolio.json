@@ -692,6 +692,33 @@
       "imageUrl": "/images/annual-business-conference-2024-award.jpeg"
     },
     {
+      "id": "proj-10",
+      "title": "Best Performing Distribution Channel Award 2025",
+      "subtitle": "Branches & Distribution Division · Green Delta Insurance",
+      "category": "Corporate Honors",
+      "badge": "AWARD 2025",
+      "period": "2025",
+      "location": "Dhaka, Bangladesh",
+      "tags": [
+        "Distribution Leadership",
+        "Branches & Distribution",
+        "Business Conference",
+        "Operational Excellence"
+      ],
+      "shortDescription": "Honored with the Best Performing Distribution Channel Award for driving network-wide branch turnaround, underwriting distribution, and exceptional revenue growth.",
+      "fullDescription": [
+        "Awarded to the Branches & Distribution Division in recognition of standout operational turnaround, high performance across 20 regional branches, and aggressive market penetration.",
+        "Celebrated by senior executive management and colleagues at the Business Conference, highlighting exemplary leadership in branch distribution.",
+        "Presented with the official division crest and trophy for driving sustainable premium growth and distribution network efficiency."
+      ],
+      "responsibilities": [
+        "Supervising nationwide 20-branch network distribution operations and portfolio turnaround",
+        "Formulating agile distribution strategies across metropolitan and regional retail markets",
+        "Receiving executive honors alongside the Branches & Distribution leadership team"
+      ],
+      "imageUrl": "/images/best-performing-distribution-channel-award-2025.jpeg"
+    },
+    {
       "id": "proj-7",
       "title": "Green Delta & IDLC Finance Institutional Partnership Agreement",
       "subtitle": "Consumer Division Strategic Partnership Signing",
@@ -772,32 +799,6 @@
     },
     {
       "id": "proj-8",
-      "title": "University of Dhaka Career Mentorship & Keynote",
-      "subtitle": "Department of Banking & Insurance · Faculty of Business Studies",
-      "category": "Academic Mentorship",
-      "badge": "DU KEYNOTE",
-      "period": "2024",
-      "location": "Dhaka, Bangladesh",
-      "tags": [
-        "University of Dhaka",
-        "Farzanah Chowdhury",
-        "Dr. Hasina Sheykh",
-        "Career Talk"
-      ],
-      "shortDescription": "Keynote speaker on stage at University of Dhaka Career Talk alongside MD Farzanah Chowdhury and Dept Chairman Dr. Hasina Sheykh.",
-      "fullDescription": [
-        "Invited keynote speaker at the University of Dhaka Faculty of Business Studies for the Green Delta Insurance Career Talk.",
-        "Addressed hundreds of business students and future insurance practitioners on industry career trajectories, modern underwriting, and leadership."
-      ],
-      "responsibilities": [
-        "Delivering address on career dynamics in non-life insurance and banking",
-        "Representing Green Delta Insurance alongside Managing Director & CEO Farzanah Chowdhury",
-        "Mentoring graduating cohorts on industry-academia transitions"
-      ],
-      "imageUrl": "/images/du-career-talk-keynote-green-delta.jpeg"
-    },
-    {
-      "id": "proj-10",
       "title": "University of Dhaka Career Mentorship & Keynote",
       "subtitle": "Department of Banking & Insurance · Faculty of Business Studies",
       "category": "Academic Mentorship",
